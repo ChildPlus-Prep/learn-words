@@ -852,6 +852,7 @@
         {
           "id": "eye",
           "name": "Eye",
+          "image": "media/body-parts/eye-mwtrndks.webp",
           "emoji": "👁️",
           "level": "k1"
         },
