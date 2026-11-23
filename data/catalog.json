@@ -34,6 +34,11 @@
           "id": "ear",
           "name": "Ear",
           "image": "media/birds/ear.webp"
+        },
+        {
+          "id": "ears",
+          "name": "ears",
+          "image": "media/birds/ears.webp"
         }
       ]
     },
