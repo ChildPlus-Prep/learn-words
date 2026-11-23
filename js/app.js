@@ -114,7 +114,7 @@ function renderHome() {
   }
 
   app.replaceChildren(
-    el("header", { class: "top" }, el("h1", {}, "Brian Booster"), el("span", { class: "tagline" }, " - by Aunty Karen")),
+    el("header", { class: "top" }, el("h1", {}, "Brain Booster"), el("span", { class: "tagline" }, " - by Aunty Karen")),
     grid
   );
 }
