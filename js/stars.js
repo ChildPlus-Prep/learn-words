@@ -13,6 +13,16 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const canvas = document.createElement("canvas");
 canvas.className = "stars";
 canvas.setAttribute("aria-hidden", "true");
+// Pin it behind everything right here, so it stays a background even if the
+// stylesheet is an old cached copy without the .stars rule.
+Object.assign(canvas.style, {
+  position: "fixed",
+  inset: "0",
+  width: "100%",
+  height: "100%",
+  zIndex: "0",
+  pointerEvents: "none",
+});
 document.body.prepend(canvas);
 const ctx = canvas.getContext("2d");
 
@@ -33,7 +43,7 @@ function makeStar() {
     y: rand(0, height),
     vx: Math.cos(angle) * DRIFT,
     vy: Math.sin(angle) * DRIFT,
-    size: rand(14, 26),
+    size: rand(9, 16),
     emoji: EMOJIS[Math.floor(Math.random() * EMOJIS.length)],
     alpha: rand(0.3, 0.55), // faint, so they never compete with the stickers
     twinkle: rand(0, Math.PI * 2),
@@ -50,8 +60,8 @@ function resize() {
   canvas.height = Math.round(height * dpr);
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-  // roughly one star per 40,000 px² of screen: ~12 on a phone, ~35 on a laptop
-  const wanted = Math.max(10, Math.min(40, Math.round((width * height) / 40000)));
+  // roughly one star per 28,000 px² of screen: ~16 on a phone, ~50 on a laptop
+  const wanted = Math.max(16, Math.min(60, Math.round((width * height) / 28000)));
   while (stars.length < wanted) stars.push(makeStar());
   stars.length = wanted;
   for (const s of stars) {
