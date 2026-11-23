@@ -116,6 +116,23 @@ function renderHome() {
   );
 }
 
+// Classes that aren't ready yet show a "working on it" page instead of their words.
+// Their words are kept in the catalog; take a class out of this list to open it up.
+const COMING_SOON = new Set(["k1", "k2", "k3"]);
+
+function renderComingSoon(level) {
+  app.replaceChildren(
+    el("header", { class: "top" }, backButton("#/"), el("h1", {}, level.name)),
+    el(
+      "div",
+      { class: "soon" },
+      el("span", { class: "soon-pic", "aria-hidden": "true" }, "🛠️"),
+      el("p", { class: "soon-title" }, "We are working on it!"),
+      el("p", { class: "soon-text" }, "Come back soon for new words.")
+    )
+  );
+}
+
 // A class: its categories (only ones with at least one word for this class).
 function renderClass(levelId) {
   const level = LEVELS.find((l) => l.id === levelId);
@@ -123,6 +140,7 @@ function renderClass(levelId) {
     location.hash = "#/";
     return;
   }
+  if (COMING_SOON.has(level.id)) return renderComingSoon(level);
 
   const grid = el("div", { class: "grid" });
   for (const cat of catalog.categories) {
@@ -156,7 +174,7 @@ function renderClass(levelId) {
 function renderCategory(levelId, catId) {
   const level = LEVELS.find((l) => l.id === levelId);
   const cat = catalog.categories.find((c) => c.id === catId);
-  if (!level || !cat) {
+  if (!level || !cat || COMING_SOON.has(level.id)) {
     location.hash = level ? `#/k/${level.id}` : "#/";
     return;
   }

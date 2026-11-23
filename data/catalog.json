@@ -8,27 +8,32 @@
         {
           "id": "parrot",
           "name": "Parrot",
-          "emoji": "🦜"
+          "emoji": "🦜",
+          "level": "k1"
         },
         {
           "id": "owl",
           "name": "Owl",
-          "emoji": "🦉"
+          "emoji": "🦉",
+          "level": "k1"
         },
         {
           "id": "duck",
           "name": "Duck",
-          "emoji": "🦆"
+          "emoji": "🦆",
+          "level": "k1"
         },
         {
           "id": "eagle",
           "name": "Eagle",
-          "emoji": "🦅"
+          "emoji": "🦅",
+          "level": "k1"
         },
         {
           "id": "peacock",
           "name": "Peacock",
-          "emoji": "🦚"
+          "emoji": "🦚",
+          "level": "k1"
         }
       ]
     },
@@ -40,27 +45,32 @@
         {
           "id": "lion",
           "name": "Lion",
-          "emoji": "🦁"
+          "emoji": "🦁",
+          "level": "k1"
         },
         {
           "id": "elephant",
           "name": "Elephant",
-          "emoji": "🐘"
+          "emoji": "🐘",
+          "level": "k1"
         },
         {
           "id": "dog",
           "name": "Dog",
-          "emoji": "🐶"
+          "emoji": "🐶",
+          "level": "k1"
         },
         {
           "id": "cat",
           "name": "Cat",
-          "emoji": "🐱"
+          "emoji": "🐱",
+          "level": "k1"
         },
         {
           "id": "monkey",
           "name": "Monkey",
-          "emoji": "🐵"
+          "emoji": "🐵",
+          "level": "k1"
         }
       ]
     },
@@ -71,12 +81,158 @@
         {
           "id": "a",
           "name": "A",
-          "emoji": "🅰️"
+          "emoji": "A",
+          "level": "preschool"
         },
         {
           "id": "b",
           "name": "B",
-          "emoji": "🅱️"
+          "emoji": "B",
+          "level": "preschool"
+        },
+        {
+          "id": "c",
+          "name": "C",
+          "emoji": "C",
+          "level": "preschool"
+        },
+        {
+          "id": "d",
+          "name": "D",
+          "emoji": "D",
+          "level": "preschool"
+        },
+        {
+          "id": "e",
+          "name": "E",
+          "emoji": "E",
+          "level": "preschool"
+        },
+        {
+          "id": "f",
+          "name": "F",
+          "emoji": "F",
+          "level": "preschool"
+        },
+        {
+          "id": "g",
+          "name": "G",
+          "emoji": "G",
+          "level": "preschool"
+        },
+        {
+          "id": "h",
+          "name": "H",
+          "emoji": "H",
+          "level": "preschool"
+        },
+        {
+          "id": "i",
+          "name": "I",
+          "emoji": "I",
+          "level": "preschool"
+        },
+        {
+          "id": "j",
+          "name": "J",
+          "emoji": "J",
+          "level": "preschool"
+        },
+        {
+          "id": "k",
+          "name": "K",
+          "emoji": "K",
+          "level": "preschool"
+        },
+        {
+          "id": "l",
+          "name": "L",
+          "emoji": "L",
+          "level": "preschool"
+        },
+        {
+          "id": "m",
+          "name": "M",
+          "emoji": "M",
+          "level": "preschool"
+        },
+        {
+          "id": "n",
+          "name": "N",
+          "emoji": "N",
+          "level": "preschool"
+        },
+        {
+          "id": "o",
+          "name": "O",
+          "emoji": "O",
+          "level": "preschool"
+        },
+        {
+          "id": "p",
+          "name": "P",
+          "emoji": "P",
+          "level": "preschool"
+        },
+        {
+          "id": "q",
+          "name": "Q",
+          "emoji": "Q",
+          "level": "preschool"
+        },
+        {
+          "id": "r",
+          "name": "R",
+          "emoji": "R",
+          "level": "preschool"
+        },
+        {
+          "id": "s",
+          "name": "S",
+          "emoji": "S",
+          "level": "preschool"
+        },
+        {
+          "id": "t",
+          "name": "T",
+          "emoji": "T",
+          "level": "preschool"
+        },
+        {
+          "id": "u",
+          "name": "U",
+          "emoji": "U",
+          "level": "preschool"
+        },
+        {
+          "id": "v",
+          "name": "V",
+          "emoji": "V",
+          "level": "preschool"
+        },
+        {
+          "id": "w",
+          "name": "W",
+          "emoji": "W",
+          "level": "preschool"
+        },
+        {
+          "id": "x",
+          "name": "X",
+          "emoji": "X",
+          "level": "preschool"
+        },
+        {
+          "id": "y",
+          "name": "Y",
+          "emoji": "Y",
+          "level": "preschool"
+        },
+        {
+          "id": "z",
+          "name": "Z",
+          "emoji": "Z",
+          "level": "preschool"
         }
       ]
     },
@@ -88,27 +244,32 @@
         {
           "id": "apple",
           "name": "Apple",
-          "emoji": "🍎"
+          "emoji": "🍎",
+          "level": "k1"
         },
         {
           "id": "banana",
           "name": "Banana",
-          "emoji": "🍌"
+          "emoji": "🍌",
+          "level": "k1"
         },
         {
           "id": "grapes",
           "name": "Grapes",
-          "emoji": "🍇"
+          "emoji": "🍇",
+          "level": "k1"
         },
         {
           "id": "mango",
           "name": "Mango",
-          "emoji": "🥭"
+          "emoji": "🥭",
+          "level": "k1"
         },
         {
           "id": "strawberry",
           "name": "Strawberry",
-          "emoji": "🍓"
+          "emoji": "🍓",
+          "level": "k1"
         }
       ]
     },
@@ -120,27 +281,32 @@
         {
           "id": "carrot",
           "name": "Carrot",
-          "emoji": "🥕"
+          "emoji": "🥕",
+          "level": "k1"
         },
         {
           "id": "tomato",
           "name": "Tomato",
-          "emoji": "🍅"
+          "emoji": "🍅",
+          "level": "k1"
         },
         {
           "id": "potato",
           "name": "Potato",
-          "emoji": "🥔"
+          "emoji": "🥔",
+          "level": "k1"
         },
         {
           "id": "corn",
           "name": "Corn",
-          "emoji": "🌽"
+          "emoji": "🌽",
+          "level": "k1"
         },
         {
           "id": "broccoli",
           "name": "Broccoli",
-          "emoji": "🥦"
+          "emoji": "🥦",
+          "level": "k1"
         }
       ]
     },
@@ -152,27 +318,32 @@
         {
           "id": "car",
           "name": "Car",
-          "emoji": "🚗"
+          "emoji": "🚗",
+          "level": "k1"
         },
         {
           "id": "bus",
           "name": "Bus",
-          "emoji": "🚌"
+          "emoji": "🚌",
+          "level": "k1"
         },
         {
           "id": "train",
           "name": "Train",
-          "emoji": "🚂"
+          "emoji": "🚂",
+          "level": "k1"
         },
         {
           "id": "airplane",
           "name": "Airplane",
-          "emoji": "✈️"
+          "emoji": "✈️",
+          "level": "k1"
         },
         {
           "id": "bicycle",
           "name": "Bicycle",
-          "emoji": "🚲"
+          "emoji": "🚲",
+          "level": "k1"
         }
       ]
     },
@@ -184,32 +355,38 @@
         {
           "id": "red",
           "name": "Red",
-          "emoji": "🔴"
+          "emoji": "🔴",
+          "level": "preschool"
         },
         {
           "id": "blue",
           "name": "Blue",
-          "emoji": "🔵"
+          "emoji": "🔵",
+          "level": "preschool"
         },
         {
           "id": "green",
           "name": "Green",
-          "emoji": "🟢"
+          "emoji": "🟢",
+          "level": "preschool"
         },
         {
           "id": "yellow",
           "name": "Yellow",
-          "emoji": "🟡"
+          "emoji": "🟡",
+          "level": "preschool"
         },
         {
           "id": "orange",
           "name": "Orange",
-          "emoji": "🟠"
+          "emoji": "🟠",
+          "level": "k1"
         },
         {
           "id": "purple",
           "name": "Purple",
-          "emoji": "🟣"
+          "emoji": "🟣",
+          "level": "k1"
         }
       ]
     },
@@ -221,27 +398,62 @@
         {
           "id": "one",
           "name": "One",
-          "emoji": "1️⃣"
+          "emoji": "1",
+          "level": "preschool"
         },
         {
           "id": "two",
           "name": "Two",
-          "emoji": "2️⃣"
+          "emoji": "2",
+          "level": "preschool"
         },
         {
           "id": "three",
           "name": "Three",
-          "emoji": "3️⃣"
+          "emoji": "3",
+          "level": "preschool"
         },
         {
           "id": "four",
           "name": "Four",
-          "emoji": "4️⃣"
+          "emoji": "4",
+          "level": "preschool"
         },
         {
           "id": "five",
           "name": "Five",
-          "emoji": "5️⃣"
+          "emoji": "5",
+          "level": "preschool"
+        },
+        {
+          "id": "six",
+          "name": "Six",
+          "emoji": "6",
+          "level": "preschool"
+        },
+        {
+          "id": "seven",
+          "name": "Seven",
+          "emoji": "7",
+          "level": "preschool"
+        },
+        {
+          "id": "eight",
+          "name": "Eight",
+          "emoji": "8",
+          "level": "preschool"
+        },
+        {
+          "id": "nine",
+          "name": "Nine",
+          "emoji": "9",
+          "level": "preschool"
+        },
+        {
+          "id": "ten",
+          "name": "Ten",
+          "emoji": "10",
+          "level": "preschool"
         }
       ]
     },
@@ -253,27 +465,41 @@
         {
           "id": "circle",
           "name": "Circle",
-          "emoji": "⚪"
+          "image": "media/shapes/circle.svg",
+          "emoji": "⚪",
+          "level": "preschool"
         },
         {
           "id": "square",
           "name": "Square",
-          "emoji": "🟥"
+          "image": "media/shapes/square.svg",
+          "emoji": "🟥",
+          "level": "preschool"
         },
         {
           "id": "triangle",
           "name": "Triangle",
-          "emoji": "🔺"
+          "image": "media/shapes/triangle.svg",
+          "emoji": "🔺",
+          "level": "preschool"
+        },
+        {
+          "id": "rectangle",
+          "name": "Rectangle",
+          "image": "media/shapes/rectangle.svg",
+          "level": "preschool"
         },
         {
           "id": "star",
           "name": "Star",
-          "emoji": "⭐"
+          "emoji": "⭐",
+          "level": "k1"
         },
         {
           "id": "heart",
           "name": "Heart",
-          "emoji": "❤️"
+          "emoji": "❤️",
+          "level": "k1"
         }
       ]
     },
@@ -285,22 +511,26 @@
         {
           "id": "eye",
           "name": "Eye",
-          "emoji": "👁️"
+          "emoji": "👁️",
+          "level": "k1"
         },
         {
           "id": "nose",
           "name": "Nose",
-          "emoji": "👃"
+          "emoji": "👃",
+          "level": "k1"
         },
         {
           "id": "hand",
           "name": "Hand",
-          "emoji": "✋"
+          "emoji": "✋",
+          "level": "k1"
         },
         {
           "id": "foot",
           "name": "Foot",
-          "emoji": "🦶"
+          "emoji": "🦶",
+          "level": "k1"
         }
       ]
     },
@@ -312,27 +542,32 @@
         {
           "id": "fish",
           "name": "Fish",
-          "emoji": "🐟"
+          "emoji": "🐟",
+          "level": "k1"
         },
         {
           "id": "whale",
           "name": "Whale",
-          "emoji": "🐳"
+          "emoji": "🐳",
+          "level": "k1"
         },
         {
           "id": "octopus",
           "name": "Octopus",
-          "emoji": "🐙"
+          "emoji": "🐙",
+          "level": "k1"
         },
         {
           "id": "crab",
           "name": "Crab",
-          "emoji": "🦀"
+          "emoji": "🦀",
+          "level": "k1"
         },
         {
           "id": "dolphin",
           "name": "Dolphin",
-          "emoji": "🐬"
+          "emoji": "🐬",
+          "level": "k1"
         }
       ]
     },
@@ -344,27 +579,32 @@
         {
           "id": "butterfly",
           "name": "Butterfly",
-          "emoji": "🦋"
+          "emoji": "🦋",
+          "level": "k1"
         },
         {
           "id": "bee",
           "name": "Bee",
-          "emoji": "🐝"
+          "emoji": "🐝",
+          "level": "k1"
         },
         {
           "id": "ladybug",
           "name": "Ladybug",
-          "emoji": "🐞"
+          "emoji": "🐞",
+          "level": "k1"
         },
         {
           "id": "ant",
           "name": "Ant",
-          "emoji": "🐜"
+          "emoji": "🐜",
+          "level": "k1"
         },
         {
           "id": "snail",
           "name": "Snail",
-          "emoji": "🐌"
+          "emoji": "🐌",
+          "level": "k1"
         }
       ]
     },
@@ -376,27 +616,32 @@
         {
           "id": "sun",
           "name": "Sun",
-          "emoji": "☀️"
+          "emoji": "☀️",
+          "level": "k1"
         },
         {
           "id": "cloud",
           "name": "Cloud",
-          "emoji": "☁️"
+          "emoji": "☁️",
+          "level": "k1"
         },
         {
           "id": "rain",
           "name": "Rain",
-          "emoji": "🌧️"
+          "emoji": "🌧️",
+          "level": "k1"
         },
         {
           "id": "snow",
           "name": "Snow",
-          "emoji": "❄️"
+          "emoji": "❄️",
+          "level": "k1"
         },
         {
           "id": "rainbow",
           "name": "Rainbow",
-          "emoji": "🌈"
+          "emoji": "🌈",
+          "level": "k1"
         }
       ]
     },
@@ -409,7 +654,8 @@
           "id": "mountain",
           "name": "mountain",
           "image": "media/test/mountain.webp",
-          "sound": "media/test/mountain.mp3"
+          "sound": "media/test/mountain.mp3",
+          "level": "k1"
         }
       ]
     }

@@ -176,6 +176,11 @@ body.kids::before {
 }
 .pic img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
 .pic .emoji { font-size: clamp(3.6rem, 12vw, 5.6rem); line-height: 1; }
+/* letters and numbers (plain text instead of an emoji) get the heading font and color */
+.pic .emoji {
+  font-family: "Chewy", "Nunito", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", cursive;
+  color: #e4572e;
+}
 
 .label {
   font-family: "Chewy", "Nunito", cursive;
@@ -193,6 +198,43 @@ body.kids::before {
   65% { transform: rotate(calc(var(--tilt) + 2deg)) scale(1.02); }
   100% { transform: rotate(var(--tilt)) scale(1.06); }
 }
+
+/* "we are working on it" page for classes that aren't ready yet */
+.soon {
+  max-width: 520px;
+  margin: 24px auto 0;
+  padding: 40px 28px 34px;
+  background: #fff;
+  border: 10px solid #fff;
+  outline: 2px dashed #e9dcc8;
+  outline-offset: -18px;
+  border-radius: 26px;
+  box-shadow: 0 10px 22px rgba(58, 46, 42, 0.16);
+  text-align: center;
+  transform: rotate(-1.5deg);
+  position: relative;
+}
+.soon::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 110px;
+  height: 30px;
+  margin-left: -55px;
+  background: #86bbd8;
+  opacity: 0.85;
+  border-radius: 4px;
+  transform: rotate(4deg);
+}
+.soon-pic { font-size: 5rem; line-height: 1; display: block; }
+.soon-title {
+  margin: 14px 0 6px;
+  font-family: "Chewy", "Nunito", cursive;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  color: #e4572e;
+}
+.soon-text { margin: 0; font-size: 1.3rem; }
 
 .loading, .empty { font-size: 1.6rem; text-align: center; margin-top: 3rem; }
 
