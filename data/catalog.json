@@ -29,6 +29,11 @@
           "id": "peacock",
           "name": "Peacock",
           "emoji": "🦚"
+        },
+        {
+          "id": "ear",
+          "name": "Ear",
+          "image": "media/birds/ear.webp"
         }
       ]
     },
