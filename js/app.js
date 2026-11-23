@@ -114,7 +114,7 @@ function renderHome() {
   }
 
   app.replaceChildren(
-    el("header", { class: "top" }, el("h1", {}, "Learn Words"), el("span", { class: "tagline" }, "my sticker book")),
+    el("header", { class: "top" }, el("h1", {}, "Brian Booster by Aunty Karen"), el("span", { class: "tagline" }, "my sticker book")),
     grid
   );
 }
