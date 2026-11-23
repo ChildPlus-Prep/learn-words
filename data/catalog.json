@@ -79,6 +79,171 @@
           "emoji": "🅱️"
         }
       ]
+    },
+    {
+      "id": "fruits",
+      "name": "Fruits",
+      "emoji": "🍎",
+      "items": [
+        {
+          "id": "apple",
+          "name": "Apple",
+          "emoji": "🍎"
+        },
+        {
+          "id": "banana",
+          "name": "Banana",
+          "emoji": "🍌"
+        },
+        {
+          "id": "grapes",
+          "name": "Grapes",
+          "emoji": "🍇"
+        },
+        {
+          "id": "mango",
+          "name": "Mango",
+          "emoji": "🥭"
+        },
+        {
+          "id": "strawberry",
+          "name": "Strawberry",
+          "emoji": "🍓"
+        }
+      ]
+    },
+    {
+      "id": "vegetables",
+      "name": "Vegetables",
+      "emoji": "🥕",
+      "items": [
+        {
+          "id": "carrot",
+          "name": "Carrot",
+          "emoji": "🥕"
+        },
+        {
+          "id": "tomato",
+          "name": "Tomato",
+          "emoji": "🍅"
+        },
+        {
+          "id": "potato",
+          "name": "Potato",
+          "emoji": "🥔"
+        },
+        {
+          "id": "corn",
+          "name": "Corn",
+          "emoji": "🌽"
+        },
+        {
+          "id": "broccoli",
+          "name": "Broccoli",
+          "emoji": "🥦"
+        }
+      ]
+    },
+    {
+      "id": "vehicles",
+      "name": "Vehicles",
+      "emoji": "🚗",
+      "items": [
+        {
+          "id": "car",
+          "name": "Car",
+          "emoji": "🚗"
+        },
+        {
+          "id": "bus",
+          "name": "Bus",
+          "emoji": "🚌"
+        },
+        {
+          "id": "train",
+          "name": "Train",
+          "emoji": "🚂"
+        },
+        {
+          "id": "airplane",
+          "name": "Airplane",
+          "emoji": "✈️"
+        },
+        {
+          "id": "bicycle",
+          "name": "Bicycle",
+          "emoji": "🚲"
+        }
+      ]
+    },
+    {
+      "id": "colors",
+      "name": "Colors",
+      "emoji": "🎨",
+      "items": [
+        {
+          "id": "red",
+          "name": "Red",
+          "emoji": "🔴"
+        },
+        {
+          "id": "blue",
+          "name": "Blue",
+          "emoji": "🔵"
+        },
+        {
+          "id": "green",
+          "name": "Green",
+          "emoji": "🟢"
+        },
+        {
+          "id": "yellow",
+          "name": "Yellow",
+          "emoji": "🟡"
+        },
+        {
+          "id": "orange",
+          "name": "Orange",
+          "emoji": "🟠"
+        },
+        {
+          "id": "purple",
+          "name": "Purple",
+          "emoji": "🟣"
+        }
+      ]
+    },
+    {
+      "id": "numbers",
+      "name": "Numbers",
+      "emoji": "🔢",
+      "items": [
+        {
+          "id": "one",
+          "name": "One",
+          "emoji": "1️⃣"
+        },
+        {
+          "id": "two",
+          "name": "Two",
+          "emoji": "2️⃣"
+        },
+        {
+          "id": "three",
+          "name": "Three",
+          "emoji": "3️⃣"
+        },
+        {
+          "id": "four",
+          "name": "Four",
+          "emoji": "4️⃣"
+        },
+        {
+          "id": "five",
+          "name": "Five",
+          "emoji": "5️⃣"
+        }
+      ]
     }
   ]
 }
