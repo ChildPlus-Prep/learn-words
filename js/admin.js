@@ -1,6 +1,6 @@
 import { GitHubRepo } from "./github.js";
 import { resizeImage, imageExt, startRecording, audioExt } from "./media.js";
-import { el, picture, slugify } from "./ui.js";
+import { el, picture, slugify, LEVELS, levelIndex } from "./ui.js";
 
 const $ = (id) => document.getElementById(id);
 const STORE_KEY = "learnWordsAdmin";
@@ -9,6 +9,7 @@ const MAX_SOUND_BYTES = 2 * 1024 * 1024;
 let gh = null;
 let catalog = { categories: [] };
 let resizedImage = null; // Blob
+let catImage = null; // Blob, the new category's picture
 let soundBlob = null; // Blob
 let soundName = "";
 let recording = null;
@@ -134,8 +135,18 @@ function renderManageList() {
         el(
           "div",
           { class: "manage-head" },
-          el("strong", {}, `${cat.emoji ? cat.emoji + " " : ""}${cat.name}`),
+          el("div", { class: "thumb cover" }, picture(cat.cover, cat.emoji || cat.items[0]?.emoji || "🖼️", cat.name)),
+          el("strong", {}, cat.name),
           el("span", { class: "hint" }, `${cat.items.length} picture${cat.items.length === 1 ? "" : "s"}`),
+          el(
+            "label",
+            { class: "file-btn" },
+            cat.cover ? "Change picture" : "Add picture",
+            el("input", { type: "file", accept: "image/*", class: "sr-only", onchange: (e) => setCategoryCover(cat, e.target.files[0]) })
+          ),
+          cat.cover
+            ? el("button", { class: "secondary small", type: "button", onclick: () => removeCategoryCover(cat) }, "Remove picture")
+            : null,
           el("button", { class: "danger small", type: "button", onclick: () => deleteCategory(cat) }, "Delete category")
         ),
         el(
@@ -147,6 +158,12 @@ function renderManageList() {
               { class: "chip" },
               el("div", { class: "thumb" }, picture(item.image, item.emoji || "⏳", item.name)),
               el("span", {}, item.name),
+              levelSelect(levelIndex(item.level), {
+                class: "level",
+                title: "Class",
+                "aria-label": `Class for ${item.name}`,
+                onchange: (e) => setItemLevel(cat, item, e.target.value),
+              }),
               item.sound
                 ? el("button", { class: "icon", type: "button", title: "Play", onclick: () => new Audio(item.sound).play().catch(() => {}) }, "▶")
                 : null,
@@ -159,6 +176,16 @@ function renderManageList() {
   );
 }
 
+function levelSelect(selectedIndex, attrs = {}) {
+  const select = el(
+    "select",
+    attrs,
+    LEVELS.map((l, i) => el("option", { value: l.id, selected: i === selectedIndex }, i === LEVELS.length - 1 ? l.name : `${l.name}+`))
+  );
+  select.value = LEVELS[selectedIndex].id;
+  return select;
+}
+
 // ---------- categories ----------
 
 async function addCategory(e) {
@@ -168,17 +195,24 @@ async function addCategory(e) {
   const id = slugify(name);
   if (!id) return setStatus("categoryStatus", "Use letters or numbers in the name.", "error");
 
+  const cover = catImage ? coverPath(id, catImage) : null;
+  const uploads = cover ? [{ path: cover, blob: catImage }] : [];
+
   await run("categoryStatus", async (status) => {
     const result = await gh.commit(
       `Add category: ${name}`,
       (cat) => {
         if (cat.categories.some((c) => c.id === id)) throw new Error(`"${name}" already exists.`);
-        cat.categories.push({ id, name, ...(emoji ? { emoji } : {}), items: [] });
+        cat.categories.push({ id, name, ...(emoji ? { emoji } : {}), ...(cover ? { cover } : {}), items: [] });
+        return { uploads };
       },
       status
     );
     catalog = result.catalog;
     $("categoryForm").reset();
+    catImage = null;
+    $("catImagePreview").replaceChildren();
+    $("catImageInfo").textContent = "";
     renderAll();
     $("itemCategory").value = id;
     setStatus("categoryStatus", `Added "${name}" ✓`, "ok");
@@ -204,24 +238,102 @@ async function deleteCategory(cat) {
   });
 }
 
+// A new file name each time, so kids' browsers never show an old cached picture.
+function coverPath(catId, blob) {
+  return `media/${catId}/cover-${Date.now().toString(36)}.${imageExt(blob)}`;
+}
+
+async function setCategoryCover(cat, file) {
+  if (!file) return;
+  await run("itemStatus", async (status) => {
+    status("Resizing…");
+    const blob = await resizeImage(file, 800, 0.8);
+    const path = coverPath(cat.id, blob);
+    const result = await gh.commit(
+      `Set picture for category: ${cat.name}`,
+      (data) => {
+        const c = data.categories.find((x) => x.id === cat.id);
+        if (!c) throw new Error("That category was deleted. Refresh the page.");
+        const old = c.cover;
+        c.cover = path;
+        return { uploads: [{ path, blob }], deletes: [old].filter(isMedia) };
+      },
+      status
+    );
+    catalog = result.catalog;
+    renderAll();
+    setStatus("itemStatus", `Picture for "${cat.name}" saved ✓ (${kb(file.size)} → ${kb(blob.size)})`, "ok");
+  });
+  renderManageList(); // clears the file input if the save didn't run
+}
+
+async function removeCategoryCover(cat) {
+  if (!confirm(`Remove the picture for "${cat.name}"?`)) return;
+  await run("itemStatus", async (status) => {
+    const result = await gh.commit(
+      `Remove picture for category: ${cat.name}`,
+      (data) => {
+        const c = data.categories.find((x) => x.id === cat.id);
+        if (!c?.cover) return {};
+        const old = c.cover;
+        delete c.cover;
+        return { deletes: [old].filter(isMedia) };
+      },
+      status
+    );
+    catalog = result.catalog;
+    renderAll();
+    setStatus("itemStatus", `Removed the picture for "${cat.name}" ✓`, "ok");
+  });
+}
+
+async function onCatImagePicked() {
+  catImage = await previewResized($("catImage"), $("catImagePreview"), $("catImageInfo"));
+}
+
 // ---------- items ----------
 
-async function onImagePicked() {
-  const file = $("itemImage").files[0];
-  resizedImage = null;
-  $("imagePreview").replaceChildren();
-  $("imageInfo").textContent = "";
-  if (!file) return;
+// Resizes the picked image (longest side 800px), shows a preview, and returns the Blob.
+async function previewResized(input, preview, info) {
+  const file = input.files[0];
+  preview.replaceChildren();
+  info.textContent = "";
+  if (!file) return null;
   try {
-    $("imageInfo").textContent = "Resizing…";
-    resizedImage = await resizeImage(file, 800, 0.8);
-    const url = URL.createObjectURL(resizedImage);
-    $("imagePreview").replaceChildren(el("img", { src: url, alt: "preview" }));
-    $("imageInfo").textContent = `${kb(file.size)} → ${kb(resizedImage.size)} (${imageExt(resizedImage).toUpperCase()})`;
+    info.textContent = "Resizing…";
+    const blob = await resizeImage(file, 800, 0.8);
+    preview.replaceChildren(el("img", { src: URL.createObjectURL(blob), alt: "preview" }));
+    info.textContent = `${kb(file.size)} → ${kb(blob.size)} (${imageExt(blob).toUpperCase()})`;
+    return blob;
   } catch (err) {
-    $("imageInfo").textContent = err.message;
-    $("itemImage").value = "";
+    info.textContent = err.message;
+    input.value = "";
+    return null;
   }
+}
+
+async function onImagePicked() {
+  resizedImage = await previewResized($("itemImage"), $("imagePreview"), $("imageInfo"));
+}
+
+async function setItemLevel(cat, item, levelId) {
+  const level = LEVELS.find((l) => l.id === levelId);
+  if (!level || busy) return renderManageList();
+  await run("itemStatus", async (status) => {
+    const result = await gh.commit(
+      `Move "${item.name}" to ${level.name}`,
+      (data) => {
+        const found = data.categories.find((c) => c.id === cat.id)?.items.find((i) => i.id === item.id);
+        if (!found) throw new Error("That picture was deleted. Refresh the page.");
+        found.level = level.id;
+      },
+      status
+    );
+    catalog = result.catalog;
+    renderAll();
+    setStatus("itemStatus", `"${item.name}" now shows from ${level.name} up ✓`, "ok");
+  });
+  renderManageList(); // puts the menu back if the save failed
 }
 
 function setSound(blob, name = "") {
@@ -277,6 +389,7 @@ async function addItem(e) {
   const catId = $("itemCategory").value;
   const name = $("itemName").value.trim();
   const emoji = $("itemEmoji").value.trim();
+  const level = $("itemLevel").value || LEVELS[0].id;
   const id = slugify(name);
   if (!catId) return setStatus("itemStatus", "Pick a category.", "error");
   if (!id) return setStatus("itemStatus", "Use letters or numbers in the word.", "error");
@@ -308,6 +421,7 @@ async function addItem(e) {
           ...(imagePath ? { image: imagePath } : {}),
           ...(emoji ? { emoji } : {}),
           ...(soundPath ? { sound: soundPath } : {}),
+          level,
         });
         return { uploads };
       },
@@ -342,8 +456,10 @@ async function deleteItem(cat, item) {
 
 function resetItemForm() {
   const keepCategory = $("itemCategory").value;
+  const keepLevel = $("itemLevel").value;
   $("itemForm").reset();
   $("itemCategory").value = keepCategory;
+  $("itemLevel").value = keepLevel;
   resizedImage = null;
   $("imagePreview").replaceChildren();
   $("imageInfo").textContent = "";
@@ -366,6 +482,9 @@ $("token").addEventListener("keydown", (e) => e.key === "Enter" && connect());
 $("categoryForm").addEventListener("submit", addCategory);
 $("itemForm").addEventListener("submit", addItem);
 $("itemImage").addEventListener("change", onImagePicked);
+$("catImage").addEventListener("change", onCatImagePicked);
+$("itemLevel").replaceChildren(...levelSelect(0).children);
+$("itemLevel").value = LEVELS[0].id;
 $("itemSound").addEventListener("change", onSoundPicked);
 $("recordBtn").addEventListener("click", toggleRecording);
 

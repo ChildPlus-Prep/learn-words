@@ -33,3 +33,22 @@ export function slugify(text) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
+
+// The four classes, in order. An item tagged with a class shows in that class
+// and every class after it. Items with no class count as Pre-school (shown everywhere).
+export const LEVELS = [
+  { id: "preschool", name: "Pre-school", emoji: "🧸" },
+  { id: "k1", name: "K1", emoji: "🎒" },
+  { id: "k2", name: "K2", emoji: "✏️" },
+  { id: "k3", name: "K3", emoji: "📚" },
+];
+
+export function levelIndex(id) {
+  const i = LEVELS.findIndex((l) => l.id === id);
+  return i === -1 ? 0 : i;
+}
+
+/** True if `item` should be shown to children in class `levelId`. */
+export function visibleIn(item, levelId) {
+  return levelIndex(item.level) <= levelIndex(levelId);
+}

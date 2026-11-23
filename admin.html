@@ -33,9 +33,19 @@
     <div id="adminArea" hidden>
       <section class="card">
         <h2>2. Add a category</h2>
-        <form id="categoryForm" class="row">
-          <label class="grow">Name <input id="catName" placeholder="Birds" required maxlength="40"></label>
-          <label>Emoji (optional) <input id="catEmoji" placeholder="🐦" maxlength="8" class="short"></label>
+        <form id="categoryForm">
+          <div class="row">
+            <label class="grow">Name <input id="catName" placeholder="Birds" required maxlength="40"></label>
+            <label>Emoji (optional) <input id="catEmoji" placeholder="🐦" maxlength="8" class="short"></label>
+          </div>
+          <div class="row media-row">
+            <div class="media-box">
+              <strong>Category picture (optional)</strong>
+              <input id="catImage" type="file" accept="image/*">
+              <div id="catImagePreview" class="preview"></div>
+              <p class="hint" id="catImageInfo">Resized automatically. No picture? The emoji or the first word's picture is used.</p>
+            </div>
+          </div>
           <button type="submit">Add category</button>
         </form>
         <p class="status" id="categoryStatus"></p>
@@ -47,7 +57,9 @@
           <div class="row">
             <label class="grow">Category <select id="itemCategory" required></select></label>
             <label class="grow">Word <input id="itemName" placeholder="Parrot" required maxlength="40"></label>
+            <label>Class <select id="itemLevel" required></select></label>
           </div>
+          <p class="hint">The word shows in this class and every class above it (Pre-school → K1 → K2 → K3).</p>
 
           <div class="row media-row">
             <div class="media-box">
@@ -77,7 +89,7 @@
 
       <section class="card">
         <h2>Everything on the site</h2>
-        <p class="hint">New things show up on the live site about a minute after saving.</p>
+        <p class="hint">New things show up on the live site about a minute after saving. Change a word's class with the menu next to it.</p>
         <div id="manageList"></div>
       </section>
     </div>

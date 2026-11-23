@@ -1,7 +1,7 @@
 // Kids' side: reads data/catalog.json and shows categories and pictures.
 // Tapping a picture plays its sound, or says the word with the browser's voice.
 
-import { el, picture } from "./ui.js";
+import { el, picture, LEVELS, visibleIn } from "./ui.js";
 
 const app = document.getElementById("app");
 let catalog = null;
@@ -85,41 +85,84 @@ function bounce(node) {
   node.classList.add("pop");
 }
 
+function backButton(hash) {
+  return el("button", { class: "back", "aria-label": "Back", onclick: () => { stopAll(); location.hash = hash; } }, backIcon());
+}
+
+// Home: the four classes.
 function renderHome() {
-  const grid = el("div", { class: "grid" });
-  catalog.categories.forEach((cat) => {
-    const first = cat.items[0] || {};
-    const tile = el(
-      "button",
-      {
-        class: "tile",
-        "aria-label": cat.name,
-        onclick: () => {
-          speak(cat.name);
-          location.hash = `#/c/${encodeURIComponent(cat.id)}`;
+  const grid = el("div", { class: "grid classes" });
+  for (const level of LEVELS) {
+    grid.append(
+      el(
+        "button",
+        {
+          class: "tile",
+          "aria-label": level.name,
+          onclick: () => {
+            speak(level.name);
+            location.hash = `#/k/${level.id}`;
+          },
         },
-      },
-      el("div", { class: "pic" }, picture(cat.cover || first.image, cat.emoji || first.emoji, cat.name)),
-      el("span", { class: "label" }, cat.name)
+        el("div", { class: "pic" }, picture(null, level.emoji, level.name)),
+        el("span", { class: "label" }, level.name)
+      )
     );
-    grid.append(tile);
-  });
+  }
 
   app.replaceChildren(
     el("header", { class: "top" }, el("h1", {}, "Learn Words"), el("span", { class: "tagline" }, "my sticker book")),
-    catalog.categories.length ? grid : el("p", { class: "empty" }, "No categories yet.")
+    grid
   );
 }
 
-function renderCategory(id) {
-  const cat = catalog.categories.find((c) => c.id === id);
-  if (!cat) {
+// A class: its categories (only ones with at least one word for this class).
+function renderClass(levelId) {
+  const level = LEVELS.find((l) => l.id === levelId);
+  if (!level) {
     location.hash = "#/";
     return;
   }
 
   const grid = el("div", { class: "grid" });
-  cat.items.forEach((item) => {
+  for (const cat of catalog.categories) {
+    const items = (cat.items || []).filter((item) => visibleIn(item, level.id));
+    if (!items.length) continue;
+    const first = items[0];
+    grid.append(
+      el(
+        "button",
+        {
+          class: "tile",
+          "aria-label": cat.name,
+          onclick: () => {
+            speak(cat.name);
+            location.hash = `#/k/${level.id}/c/${encodeURIComponent(cat.id)}`;
+          },
+        },
+        el("div", { class: "pic" }, picture(cat.cover || first.image, cat.emoji || first.emoji, cat.name)),
+        el("span", { class: "label" }, cat.name)
+      )
+    );
+  }
+
+  app.replaceChildren(
+    el("header", { class: "top" }, backButton("#/"), el("h1", {}, level.name)),
+    grid.children.length ? grid : el("p", { class: "empty" }, "No pictures for this class yet.")
+  );
+}
+
+// A category inside a class: only the words for this class.
+function renderCategory(levelId, catId) {
+  const level = LEVELS.find((l) => l.id === levelId);
+  const cat = catalog.categories.find((c) => c.id === catId);
+  if (!level || !cat) {
+    location.hash = level ? `#/k/${level.id}` : "#/";
+    return;
+  }
+
+  const grid = el("div", { class: "grid" });
+  for (const item of (cat.items || []).filter((i) => visibleIn(i, level.id))) {
     const tile = el(
       "button",
       {
@@ -134,22 +177,21 @@ function renderCategory(id) {
       el("span", { class: "label" }, item.name)
     );
     grid.append(tile);
-  });
+  }
 
   app.replaceChildren(
-    el(
-      "header",
-      { class: "top" },
-      el("button", { class: "back", "aria-label": "Back", onclick: () => { stopAll(); location.hash = "#/"; } }, backIcon()),
-      el("h1", {}, cat.name)
-    ),
-    cat.items.length ? grid : el("p", { class: "empty" }, "No pictures here yet.")
+    el("header", { class: "top" }, backButton(`#/k/${level.id}`), el("h1", {}, cat.name)),
+    grid.children.length ? grid : el("p", { class: "empty" }, "No pictures here yet.")
   );
 }
 
 function route() {
-  const m = location.hash.match(/^#\/c\/(.+)$/);
-  if (m) renderCategory(decodeURIComponent(m[1]));
+  // don't stopAll() here: tapping a tile says its name and then changes the page
+  setPlaying(null);
+  const hash = location.hash;
+  let m;
+  if ((m = hash.match(/^#\/k\/([^/]+)\/c\/(.+)$/))) renderCategory(decodeURIComponent(m[1]), decodeURIComponent(m[2]));
+  else if ((m = hash.match(/^#\/k\/([^/]+)$/))) renderClass(decodeURIComponent(m[1]));
   else renderHome();
   window.scrollTo(0, 0);
 }
