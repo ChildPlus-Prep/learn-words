@@ -2,12 +2,15 @@
 html, body { margin: 0; }
 img { display: block; }
 
-/* ---------- kids' site ---------- */
+/* ---------- kids' site: Sticker Book look ---------- */
 
 body.kids {
-  font-family: "Baloo 2", ui-rounded, "Comic Sans MS", system-ui, sans-serif;
-  background: #fffaf2;
-  color: #2b2b3a;
+  font-family: "Nunito", ui-rounded, system-ui, sans-serif;
+  font-weight: 800;
+  background-color: #fdf6ec;
+  background-image: radial-gradient(#e9dcc8 1.6px, transparent 1.6px);
+  background-size: 22px 22px;
+  color: #3a2e2a;
   min-height: 100vh;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
@@ -19,81 +22,148 @@ body.kids {
 .top {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 8px 4px 20px;
+  flex-wrap: wrap;
+  column-gap: 18px;
+  row-gap: 4px;
+  padding: 8px 4px 28px;
 }
 .top h1 {
   margin: 0;
-  font-size: clamp(2rem, 6vw, 3.2rem);
-  font-weight: 800;
-  color: #ff6b6b;
+  font-family: "Chewy", "Nunito", cursive;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 8vw, 4.5rem);
+  line-height: 1;
+  color: #e4572e;
+}
+.tagline {
+  font-family: "Chewy", "Nunito", cursive;
+  font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+  color: #2e86ab;
 }
 
 .back {
-  font-size: 2rem;
-  width: 64px;
-  height: 64px;
-  border: none;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background: #ffe066;
+  background: #2e86ab;
+  border: 6px solid #fff;
+  box-shadow: 0 6px 14px rgba(58, 46, 42, 0.18);
+  display: grid;
+  place-items: center;
+  padding: 0;
   cursor: pointer;
-  box-shadow: 0 4px 0 #e0b800;
   flex: none;
 }
-.back:active { transform: translateY(3px); box-shadow: 0 1px 0 #e0b800; }
+.back:active { transform: scale(0.94); }
+.back:focus-visible { outline: 4px solid #e4572e; outline-offset: 3px; }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 38px 28px;
+  padding-top: 12px;
 }
 
+/* each card is a sticker: white, dashed edge, a strip of tape, slightly tilted */
 .tile {
+  --tilt: -2deg;
+  --tape: #f6ae2d;
+  --tape-tilt: 5deg;
   font: inherit;
-  border: none;
-  border-radius: 28px;
-  background: var(--tile, #ffe3cc);
-  padding: 14px 14px 8px;
+  color: inherit;
+  position: relative;
+  background: #fff;
+  border: 8px solid #fff;
+  outline: 2px dashed #e9dcc8;
+  outline-offset: -14px;
+  border-radius: 22px;
+  box-shadow: 0 8px 18px rgba(58, 46, 42, 0.16);
+  padding: 22px 10px 14px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.08);
-  transition: transform 0.08s ease;
+  gap: 8px;
+  transform: rotate(var(--tilt));
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
-.tile:active { transform: scale(0.96); }
-.tile:focus-visible { outline: 4px solid #4c6ef5; outline-offset: 3px; }
+.tile::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  width: 88px;
+  height: 28px;
+  margin-left: -44px;
+  background: var(--tape);
+  opacity: 0.85;
+  border-radius: 4px;
+  transform: rotate(var(--tape-tilt));
+}
+.tile:nth-child(8n+2) { --tilt: 2deg;  --tape: #86bbd8; --tape-tilt: -4deg; }
+.tile:nth-child(8n+3) { --tilt: -1deg; --tape: #f26419; }
+.tile:nth-child(8n+4) { --tilt: 3deg;  --tape: #9bc53d; --tape-tilt: -4deg; }
+.tile:nth-child(8n+5) { --tilt: 2deg;  --tape: #c3a6e8; }
+.tile:nth-child(8n+6) { --tilt: -2deg; --tape: #f28fa6; --tape-tilt: -4deg; }
+.tile:nth-child(8n+7) { --tilt: 3deg;  --tape: #55c1b0; }
+.tile:nth-child(8n)   { --tilt: -3deg; --tape: #f6d55c; --tape-tilt: -4deg; }
+
+.tile:active { transform: rotate(var(--tilt)) scale(0.96); }
+.tile:focus-visible { outline: 4px solid #2e86ab; outline-offset: 4px; }
+.tile.playing {
+  transform: rotate(var(--tilt)) scale(1.06);
+  box-shadow: 0 18px 32px rgba(58, 46, 42, 0.26);
+  z-index: 1;
+}
+
+/* orange speaker badge, shown while a word is being said */
+.tile.playing::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -14px;
+  width: 56px;
+  height: 56px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 10px rgba(58, 46, 42, 0.2);
+  background: #f6ae2d url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233a2e2a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 5L6 9H3v6h3l5 4V5z'/%3E%3Cpath d='M15.5 8.5a5 5 0 0 1 0 7'/%3E%3C/svg%3E") center / 28px no-repeat;
+}
 
 .pic {
   width: 100%;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  border-radius: 20px;
-  background: #fff;
+  border-radius: 14px;
   overflow: hidden;
 }
 .pic img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
-.pic .emoji { font-size: clamp(4rem, 14vw, 6rem); line-height: 1; }
+.pic .emoji { font-size: clamp(4.2rem, 14vw, 6.5rem); line-height: 1; }
 
 .label {
-  font-size: clamp(1.3rem, 4vw, 1.7rem);
-  font-weight: 700;
+  font-family: "Chewy", "Nunito", cursive;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4.2vw, 2.1rem);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  text-align: center;
 }
 
 .pop { animation: pop 0.45s ease; }
 @keyframes pop {
-  0% { transform: scale(1); }
-  35% { transform: scale(1.1) rotate(-3deg); }
-  65% { transform: scale(0.97) rotate(2deg); }
-  100% { transform: scale(1); }
+  0% { transform: rotate(var(--tilt)) scale(1); }
+  35% { transform: rotate(calc(var(--tilt) - 4deg)) scale(1.12); }
+  65% { transform: rotate(calc(var(--tilt) + 2deg)) scale(1.02); }
+  100% { transform: rotate(var(--tilt)) scale(1.06); }
 }
 
 .loading, .empty { font-size: 1.6rem; text-align: center; margin-top: 3rem; }
 
 @media (prefers-reduced-motion: reduce) {
   .pop { animation: none; }
+  .tile { transition: none; }
 }
 
 /* ---------- admin ---------- */

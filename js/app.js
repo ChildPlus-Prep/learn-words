@@ -6,6 +6,7 @@ import { el, picture } from "./ui.js";
 const app = document.getElementById("app");
 let catalog = null;
 let currentAudio = null;
+let playingTile = null;
 
 async function loadCatalog() {
   // ?v= skips the browser cache so newly added words show up quickly
@@ -14,13 +15,24 @@ async function loadCatalog() {
   return res.json();
 }
 
-function speak(text) {
-  if (!("speechSynthesis" in window)) return;
+// Shows the speaker badge on a tile while its word is being said.
+function setPlaying(tile) {
+  if (playingTile) playingTile.classList.remove("playing");
+  playingTile = tile;
+  if (tile) tile.classList.add("playing");
+}
+
+function speak(text, onDone) {
+  if (!("speechSynthesis" in window)) return onDone?.();
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = "en-US";
   u.rate = 0.85;
   u.pitch = 1.1;
+  if (onDone) {
+    u.addEventListener("end", onDone);
+    u.addEventListener("error", onDone);
+  }
   speechSynthesis.speak(u);
 }
 
@@ -30,23 +42,41 @@ function stopAll() {
     currentAudio = null;
   }
   if ("speechSynthesis" in window) speechSynthesis.cancel();
+  setPlaying(null);
 }
 
-function playItem(item) {
+function playItem(item, tile) {
   stopAll();
-  if (!item.sound) return speak(item.name);
+  setPlaying(tile);
+  const done = () => {
+    if (playingTile === tile) setPlaying(null);
+  };
+  if (!item.sound) return speak(item.name, done);
 
   let fellBack = false;
   const fallback = () => {
     if (!fellBack) {
       fellBack = true;
-      speak(item.name);
+      speak(item.name, done);
     }
   };
   const audio = new Audio(item.sound);
   currentAudio = audio;
+  audio.addEventListener("ended", done);
   audio.addEventListener("error", fallback);
   audio.play().catch(fallback);
+}
+
+// Chevron for the back button (SVG needs its own namespace, so el() can't make it).
+function backIcon() {
+  const ns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(ns, "svg");
+  const attrs = { width: 32, height: 32, viewBox: "0 0 24 24", fill: "none", stroke: "#fff", "stroke-width": 3, "stroke-linecap": "round", "stroke-linejoin": "round", "aria-hidden": "true" };
+  for (const [k, v] of Object.entries(attrs)) svg.setAttribute(k, v);
+  const path = document.createElementNS(ns, "path");
+  path.setAttribute("d", "M15 5l-7 7 7 7");
+  svg.append(path);
+  return svg;
 }
 
 function bounce(node) {
@@ -55,17 +85,14 @@ function bounce(node) {
   node.classList.add("pop");
 }
 
-const COLORS = ["#FFD6E0", "#D6F5FF", "#E3FFD6", "#FFF1C9", "#E8DDFF", "#FFE3CC"];
-
 function renderHome() {
   const grid = el("div", { class: "grid" });
-  catalog.categories.forEach((cat, i) => {
+  catalog.categories.forEach((cat) => {
     const first = cat.items[0] || {};
     const tile = el(
       "button",
       {
         class: "tile",
-        style: `--tile:${COLORS[i % COLORS.length]}`,
         "aria-label": cat.name,
         onclick: () => {
           speak(cat.name);
@@ -79,7 +106,7 @@ function renderHome() {
   });
 
   app.replaceChildren(
-    el("header", { class: "top" }, el("h1", {}, "Learn Words")),
+    el("header", { class: "top" }, el("h1", {}, "Learn Words"), el("span", { class: "tagline" }, "my sticker book")),
     catalog.categories.length ? grid : el("p", { class: "empty" }, "No categories yet.")
   );
 }
@@ -92,15 +119,14 @@ function renderCategory(id) {
   }
 
   const grid = el("div", { class: "grid" });
-  cat.items.forEach((item, i) => {
+  cat.items.forEach((item) => {
     const tile = el(
       "button",
       {
         class: "tile",
-        style: `--tile:${COLORS[i % COLORS.length]}`,
         "aria-label": item.name,
         onclick: () => {
-          playItem(item);
+          playItem(item, tile);
           bounce(tile);
         },
       },
@@ -114,7 +140,7 @@ function renderCategory(id) {
     el(
       "header",
       { class: "top" },
-      el("button", { class: "back", "aria-label": "Back", onclick: () => { stopAll(); location.hash = "#/"; } }, "⬅"),
+      el("button", { class: "back", "aria-label": "Back", onclick: () => { stopAll(); location.hash = "#/"; } }, backIcon()),
       el("h1", {}, cat.name)
     ),
     cat.items.length ? grid : el("p", { class: "empty" }, "No pictures here yet.")
