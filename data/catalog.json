@@ -246,6 +246,166 @@
       ]
     },
     {
+      "id": "shapes",
+      "name": "Shapes",
+      "emoji": "🔷",
+      "items": [
+        {
+          "id": "circle",
+          "name": "Circle",
+          "emoji": "⚪"
+        },
+        {
+          "id": "square",
+          "name": "Square",
+          "emoji": "🟥"
+        },
+        {
+          "id": "triangle",
+          "name": "Triangle",
+          "emoji": "🔺"
+        },
+        {
+          "id": "star",
+          "name": "Star",
+          "emoji": "⭐"
+        },
+        {
+          "id": "heart",
+          "name": "Heart",
+          "emoji": "❤️"
+        }
+      ]
+    },
+    {
+      "id": "body-parts",
+      "name": "Body Parts",
+      "emoji": "🖐️",
+      "items": [
+        {
+          "id": "eye",
+          "name": "Eye",
+          "emoji": "👁️"
+        },
+        {
+          "id": "ear",
+          "name": "Ear",
+          "emoji": "👂"
+        },
+        {
+          "id": "nose",
+          "name": "Nose",
+          "emoji": "👃"
+        },
+        {
+          "id": "hand",
+          "name": "Hand",
+          "emoji": "✋"
+        },
+        {
+          "id": "foot",
+          "name": "Foot",
+          "emoji": "🦶"
+        }
+      ]
+    },
+    {
+      "id": "sea-animals",
+      "name": "Sea Animals",
+      "emoji": "🐠",
+      "items": [
+        {
+          "id": "fish",
+          "name": "Fish",
+          "emoji": "🐟"
+        },
+        {
+          "id": "whale",
+          "name": "Whale",
+          "emoji": "🐳"
+        },
+        {
+          "id": "octopus",
+          "name": "Octopus",
+          "emoji": "🐙"
+        },
+        {
+          "id": "crab",
+          "name": "Crab",
+          "emoji": "🦀"
+        },
+        {
+          "id": "dolphin",
+          "name": "Dolphin",
+          "emoji": "🐬"
+        }
+      ]
+    },
+    {
+      "id": "insects",
+      "name": "Insects",
+      "emoji": "🐞",
+      "items": [
+        {
+          "id": "butterfly",
+          "name": "Butterfly",
+          "emoji": "🦋"
+        },
+        {
+          "id": "bee",
+          "name": "Bee",
+          "emoji": "🐝"
+        },
+        {
+          "id": "ladybug",
+          "name": "Ladybug",
+          "emoji": "🐞"
+        },
+        {
+          "id": "ant",
+          "name": "Ant",
+          "emoji": "🐜"
+        },
+        {
+          "id": "snail",
+          "name": "Snail",
+          "emoji": "🐌"
+        }
+      ]
+    },
+    {
+      "id": "weather",
+      "name": "Weather",
+      "emoji": "🌦️",
+      "items": [
+        {
+          "id": "sun",
+          "name": "Sun",
+          "emoji": "☀️"
+        },
+        {
+          "id": "cloud",
+          "name": "Cloud",
+          "emoji": "☁️"
+        },
+        {
+          "id": "rain",
+          "name": "Rain",
+          "emoji": "🌧️"
+        },
+        {
+          "id": "snow",
+          "name": "Snow",
+          "emoji": "❄️"
+        },
+        {
+          "id": "rainbow",
+          "name": "Rainbow",
+          "emoji": "🌈"
+        }
+      ]
+    },
+    {
       "id": "test",
       "name": "test",
       "emoji": "⛏️",
