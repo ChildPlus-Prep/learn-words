@@ -67,7 +67,13 @@
     {
       "id": "alphabets",
       "name": "Alphabets",
-      "items": []
+      "items": [
+        {
+          "id": "a",
+          "name": "A",
+          "emoji": "🅰️"
+        }
+      ]
     }
   ]
 }
