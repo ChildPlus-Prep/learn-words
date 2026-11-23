@@ -2,7 +2,11 @@
 // They wander on their own, and when you move the mouse (or drag a finger)
 // the stars near it get pushed along in the direction you moved.
 
-const EMOJIS = ["⭐", "✨", "🌟"];
+// stars first (listed twice so they stay the most common), then other things kids love
+const EMOJIS = [
+  "⭐", "✨", "🌟", "⭐", "✨", "🌟",
+  "🎈", "🌈", "🦋", "🍭", "🌸", "🐠", "🎀", "🍦", "🐞", "🐝", "⚽", "🧸",
+];
 const PUSH_RADIUS = 180; // px around the pointer that feel the "wind"
 const PUSH_STRENGTH = 0.08; // how much of the pointer's speed is passed on
 const MAX_SPEED = 6; // px per frame, so a fast swipe doesn't fling them away
@@ -43,7 +47,7 @@ function makeStar() {
     y: rand(0, height),
     vx: Math.cos(angle) * DRIFT,
     vy: Math.sin(angle) * DRIFT,
-    size: rand(9, 16),
+    size: rand(11.25, 20), // 25% bigger than before (was 9–16)
     emoji: EMOJIS[Math.floor(Math.random() * EMOJIS.length)],
     alpha: rand(0.3, 0.55), // faint, so they never compete with the stickers
     twinkle: rand(0, Math.PI * 2),
@@ -60,8 +64,8 @@ function resize() {
   canvas.height = Math.round(height * dpr);
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-  // roughly one star per 28,000 px² of screen: ~16 on a phone, ~50 on a laptop
-  const wanted = Math.max(16, Math.min(60, Math.round((width * height) / 28000)));
+  // roughly one per 14,000 px² of screen: ~32 on a phone, ~100 on a laptop
+  const wanted = Math.max(32, Math.min(120, Math.round((width * height) / 14000)));
   while (stars.length < wanted) stars.push(makeStar());
   stars.length = wanted;
   for (const s of stars) {
