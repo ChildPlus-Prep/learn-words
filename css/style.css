@@ -8,21 +8,31 @@ body.kids {
   font-family: "Nunito", ui-rounded, system-ui, sans-serif;
   font-weight: 800;
   background-color: #fdf6ec;
-  /* soft color patches in the corners + the dotted paper on top, all kept pale
-     so the stickers stay the star of the page */
-  background-image:
-    radial-gradient(#e9dcc8 1.6px, transparent 1.6px),
-    radial-gradient(circle at 8% 12%, rgba(134, 187, 216, 0.28) 0, transparent 32%),
-    radial-gradient(circle at 92% 18%, rgba(246, 174, 45, 0.22) 0, transparent 30%),
-    radial-gradient(circle at 85% 92%, rgba(242, 143, 166, 0.22) 0, transparent 34%),
-    radial-gradient(circle at 10% 88%, rgba(155, 197, 61, 0.20) 0, transparent 32%);
-  background-size: 22px 22px, auto, auto, auto, auto;
-  background-attachment: scroll, fixed, fixed, fixed, fixed;
+  /* dotted paper; the soft color patches are on body::before below */
+  background-image: radial-gradient(#e9dcc8 1.6px, transparent 1.6px);
+  background-size: 22px 22px;
   color: #3a2e2a;
   min-height: 100vh;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   -webkit-user-select: none;
+}
+
+/* soft color patches in the corners, kept pale so the stickers stay the star.
+   They sit on their own fixed layer: "background-attachment: fixed" made the
+   browser repaint the whole page on every scroll, which felt slow. */
+body.kids::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(134, 187, 216, 0.28) 0, transparent 32%),
+    radial-gradient(circle at 92% 18%, rgba(246, 174, 45, 0.22) 0, transparent 30%),
+    radial-gradient(circle at 85% 92%, rgba(242, 143, 166, 0.22) 0, transparent 34%),
+    radial-gradient(circle at 10% 88%, rgba(155, 197, 61, 0.20) 0, transparent 32%);
+  transform: translateZ(0);
 }
 
 .kids main { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 16px 16px 48px; }
