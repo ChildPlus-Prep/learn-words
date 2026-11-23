@@ -10,6 +10,9 @@ let gh = null;
 let catalog = { categories: [] };
 let resizedImage = null; // Blob
 let catImage = null; // Blob, the new category's picture
+// When editing an existing word: which one, and the picture/sound it will keep
+// (set to null when the person removes it). null when adding a new word.
+let editing = null;
 let soundBlob = null; // Blob
 let soundName = "";
 let recording = null;
@@ -167,7 +170,8 @@ function renderManageList() {
               item.sound
                 ? el("button", { class: "icon", type: "button", title: "Play", onclick: () => new Audio(item.sound).play().catch(() => {}) }, "▶")
                 : null,
-              el("button", { class: "icon", type: "button", title: "Delete", onclick: () => deleteItem(cat, item) }, "✕")
+              el("button", { class: "icon", type: "button", title: "Edit", "aria-label": `Edit ${item.name}`, onclick: () => startEdit(cat, item) }, "✎"),
+              el("button", { class: "icon", type: "button", title: "Delete", "aria-label": `Delete ${item.name}`, onclick: () => deleteItem(cat, item) }, "✕")
             )
           )
         )
@@ -314,6 +318,35 @@ async function previewResized(input, preview, info) {
 
 async function onImagePicked() {
   resizedImage = await previewResized($("itemImage"), $("imagePreview"), $("imageInfo"));
+  if (!resizedImage) showKeptImage();
+  else if (editing?.image) $("imageInfo").textContent += " · replaces the current picture";
+}
+
+// While editing: show the word's current picture with a way to remove it.
+function showKeptImage() {
+  if (!editing?.image) return;
+  $("imagePreview").replaceChildren(
+    el("img", { src: editing.image, alt: "current picture" }),
+    el("button", { type: "button", class: "secondary small", onclick: () => {
+      editing.image = null;
+      $("imagePreview").replaceChildren();
+      $("imageInfo").textContent = "The picture will be removed when you save.";
+    } }, "Remove picture")
+  );
+  $("imageInfo").textContent = "Current picture";
+}
+
+// While editing: show the word's current sound with a way to remove it.
+function showKeptSound() {
+  if (!editing?.sound) return;
+  $("soundPreview").replaceChildren(
+    el("span", { class: "hint" }, "Current sound:"),
+    el("audio", { src: editing.sound, controls: true }),
+    el("button", { type: "button", class: "secondary small", onclick: () => {
+      editing.sound = null;
+      $("soundPreview").replaceChildren(el("span", { class: "hint" }, "The sound will be removed when you save."));
+    } }, "Remove sound")
+  );
 }
 
 async function setItemLevel(cat, item, levelId) {
@@ -340,9 +373,13 @@ function setSound(blob, name = "") {
   soundBlob = blob;
   soundName = name;
   const box = $("soundPreview");
-  if (!blob) return box.replaceChildren();
+  if (!blob) {
+    box.replaceChildren();
+    return showKeptSound();
+  }
   const url = URL.createObjectURL(blob);
   box.replaceChildren(
+    ...(editing?.sound ? [el("span", { class: "hint" }, "New sound (replaces the current one):")] : []),
     el("audio", { src: url, controls: true }),
     el("button", { type: "button", class: "secondary small", onclick: () => { setSound(null); $("itemSound").value = ""; } }, "Remove sound")
   );
@@ -385,6 +422,7 @@ async function toggleRecording() {
 async function addItem(e) {
   e.preventDefault();
   if (recording) await recording.stop();
+  if (editing) return saveEdit();
 
   const catId = $("itemCategory").value;
   const name = $("itemName").value.trim();
@@ -399,11 +437,11 @@ async function addItem(e) {
   let imagePath;
   let soundPath;
   if (resizedImage) {
-    imagePath = `media/${catId}/${id}.${imageExt(resizedImage)}`;
+    imagePath = mediaPath(catId, id, imageExt(resizedImage));
     uploads.push({ path: imagePath, blob: resizedImage });
   }
   if (soundBlob) {
-    soundPath = `media/${catId}/${id}.${audioExt(soundBlob, soundName)}`;
+    soundPath = mediaPath(catId, id, audioExt(soundBlob, soundName));
     uploads.push({ path: soundPath, blob: soundBlob });
   }
 
@@ -434,6 +472,89 @@ async function addItem(e) {
   });
 }
 
+function startEdit(cat, item) {
+  if (busy) return;
+  if (recording) recording.stop();
+  editing = null;
+  resetItemForm();
+  editing = { catId: cat.id, itemId: item.id, image: item.image || null, sound: item.sound || null };
+
+  $("itemCategory").value = cat.id;
+  $("itemCategory").disabled = true;
+  $("itemName").value = item.name;
+  $("itemEmoji").value = item.emoji || "";
+  $("itemLevel").value = LEVELS[levelIndex(item.level)].id;
+  $("itemFormTitle").textContent = `Edit "${item.name}" in ${cat.name}`;
+  $("editHint").hidden = false;
+  $("saveItemBtn").textContent = "Save changes";
+  $("saveItemBtn").disabled = false;
+  $("cancelEditBtn").hidden = false;
+  $("itemCard").classList.add("editing");
+  showKeptImage();
+  showKeptSound();
+  setStatus("itemStatus", "");
+  $("itemCard").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("itemName").focus({ preventScroll: true });
+}
+
+function cancelEdit() {
+  if (recording) recording.stop();
+  editing = null;
+  resetItemForm();
+  setStatus("itemStatus", "");
+}
+
+async function saveEdit() {
+  const { catId, itemId } = editing;
+  const name = $("itemName").value.trim();
+  const emoji = $("itemEmoji").value.trim();
+  const level = $("itemLevel").value || LEVELS[0].id;
+  if (!slugify(name)) return setStatus("itemStatus", "Use letters or numbers in the word.", "error");
+
+  const uploads = [];
+  let imagePath = editing.image;
+  let soundPath = editing.sound;
+  if (resizedImage) {
+    imagePath = mediaPath(catId, itemId, imageExt(resizedImage));
+    uploads.push({ path: imagePath, blob: resizedImage });
+  }
+  if (soundBlob) {
+    soundPath = mediaPath(catId, itemId, audioExt(soundBlob, soundName));
+    uploads.push({ path: soundPath, blob: soundBlob });
+  }
+  if (!imagePath && !emoji) return setStatus("itemStatus", "Keep a picture or add an emoji.", "error");
+
+  await run("itemStatus", async (status) => {
+    const result = await gh.commit(
+      `Edit "${name}"`,
+      (data) => {
+        const cat = data.categories.find((c) => c.id === catId);
+        const found = cat?.items.find((i) => i.id === itemId);
+        if (!found) throw new Error("That word was deleted. Refresh the page.");
+        const old = mediaPaths(found);
+        // rebuild in the usual field order
+        const updated = {
+          id: found.id,
+          name,
+          ...(imagePath ? { image: imagePath } : {}),
+          ...(emoji ? { emoji } : {}),
+          ...(soundPath ? { sound: soundPath } : {}),
+          level,
+        };
+        cat.items[cat.items.indexOf(found)] = updated;
+        const keep = new Set(mediaPaths(updated));
+        return { uploads, deletes: old.filter((p) => !keep.has(p)).filter(isMedia) };
+      },
+      status
+    );
+    catalog = result.catalog;
+    editing = null;
+    resetItemForm();
+    renderAll();
+    setStatus("itemStatus", `Saved changes to "${name}" ✓ They'll be live in about a minute.`, "ok");
+  });
+}
+
 async function deleteItem(cat, item) {
   if (!confirm(`Delete "${item.name}" from ${cat.name}?`)) return;
   await run("itemStatus", async (status) => {
@@ -449,6 +570,10 @@ async function deleteItem(cat, item) {
       status
     );
     catalog = result.catalog;
+    if (editing?.catId === cat.id && editing?.itemId === item.id) {
+      editing = null;
+      resetItemForm();
+    }
     renderAll();
     setStatus("itemStatus", `Deleted "${item.name}" ✓`, "ok");
   });
@@ -465,12 +590,23 @@ function resetItemForm() {
   $("imageInfo").textContent = "";
   $("recordBtn").textContent = "🎙️ Record";
   setSound(null);
-  $("itemName").focus();
+  if (!editing) {
+    $("itemCategory").disabled = false;
+    $("itemFormTitle").textContent = "3. Add a picture";
+    $("editHint").hidden = true;
+    $("saveItemBtn").textContent = "Save picture";
+    $("saveItemBtn").disabled = !catalog.categories.length;
+    $("cancelEditBtn").hidden = true;
+    $("itemCard").classList.remove("editing");
+  }
+  $("itemName").focus({ preventScroll: true });
 }
 
 // ---------- utils ----------
 
 const mediaPaths = (item) => [item.image, item.sound].filter(Boolean);
+// A new file name each save, so kids' browsers never show an old cached picture or sound.
+const mediaPath = (catId, itemId, ext) => `media/${catId}/${itemId}-${Date.now().toString(36)}.${ext}`;
 const isMedia = (path) => typeof path === "string" && path.startsWith("media/");
 const kb = (bytes) => (bytes > 1024 * 1024 ? `${(bytes / 1024 / 1024).toFixed(1)} MB` : `${Math.round(bytes / 1024)} KB`);
 
@@ -481,6 +617,7 @@ $("logoutBtn").addEventListener("click", logout);
 $("token").addEventListener("keydown", (e) => e.key === "Enter" && connect());
 $("categoryForm").addEventListener("submit", addCategory);
 $("itemForm").addEventListener("submit", addItem);
+$("cancelEditBtn").addEventListener("click", cancelEdit);
 $("itemImage").addEventListener("change", onImagePicked);
 $("catImage").addEventListener("change", onCatImagePicked);
 $("itemLevel").replaceChildren(...levelSelect(0).children);

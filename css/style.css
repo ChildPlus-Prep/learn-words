@@ -372,3 +372,5 @@ body.busy .admin button, body.busy button { pointer-events: none; opacity: 0.6; 
 .admin label.file-btn:focus-within { outline: 2px solid #1f6feb; outline-offset: 2px; }
 .admin select.level { padding: 1px 4px; font-size: 0.8rem; border-radius: 6px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.card.editing { border-color: #1f6feb; box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.15); }
+.preview { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }

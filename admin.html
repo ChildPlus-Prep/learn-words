@@ -51,8 +51,9 @@
         <p class="status" id="categoryStatus"></p>
       </section>
 
-      <section class="card">
-        <h2>3. Add a picture</h2>
+      <section class="card" id="itemCard">
+        <h2 id="itemFormTitle">3. Add a picture</h2>
+        <p class="hint" id="editHint" hidden>You're editing an existing word. Pick a new picture or sound to replace the old one, or remove it. Anything you don't touch stays the same.</p>
         <form id="itemForm">
           <div class="row">
             <label class="grow">Category <select id="itemCategory" required></select></label>
@@ -82,7 +83,10 @@
             </div>
           </div>
 
-          <button type="submit" id="saveItemBtn">Save picture</button>
+          <div class="row">
+            <button type="submit" id="saveItemBtn">Save picture</button>
+            <button type="button" id="cancelEditBtn" class="secondary" hidden>Cancel editing</button>
+          </div>
         </form>
         <p class="status" id="itemStatus"></p>
       </section>
