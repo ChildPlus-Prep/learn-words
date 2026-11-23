@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Learn Words · Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin">
+  <header class="admin-top">
+    <h1>Learn Words · Admin</h1>
+    <a href="./">← Back to the site</a>
+  </header>
+
+  <main>
+    <section class="card" id="connectCard">
+      <h2>1. Connect to GitHub</h2>
+      <p class="hint">Only people with write access to the repo can save. Your token stays in this browser only.</p>
+      <div class="row">
+        <label>Owner <input id="owner" placeholder="your-github-username" autocomplete="off"></label>
+        <label>Repo <input id="repo" placeholder="learn-words" autocomplete="off"></label>
+        <label>Branch <input id="branch" placeholder="main" autocomplete="off"></label>
+      </div>
+      <label>Access token <input id="token" type="password" placeholder="github_pat_…" autocomplete="off"></label>
+      <div class="row">
+        <button id="connectBtn">Connect</button>
+        <button id="logoutBtn" class="secondary" type="button">Forget token</button>
+      </div>
+      <p class="status" id="connectStatus"></p>
+    </section>
+
+    <div id="adminArea" hidden>
+      <section class="card">
+        <h2>2. Add a category</h2>
+        <form id="categoryForm" class="row">
+          <label class="grow">Name <input id="catName" placeholder="Birds" required maxlength="40"></label>
+          <label>Emoji (optional) <input id="catEmoji" placeholder="🐦" maxlength="8" class="short"></label>
+          <button type="submit">Add category</button>
+        </form>
+        <p class="status" id="categoryStatus"></p>
+      </section>
+
+      <section class="card">
+        <h2>3. Add a picture</h2>
+        <form id="itemForm">
+          <div class="row">
+            <label class="grow">Category <select id="itemCategory" required></select></label>
+            <label class="grow">Word <input id="itemName" placeholder="Parrot" required maxlength="40"></label>
+          </div>
+
+          <div class="row media-row">
+            <div class="media-box">
+              <strong>Picture</strong>
+              <input id="itemImage" type="file" accept="image/*">
+              <label>or emoji <input id="itemEmoji" placeholder="🦜" maxlength="8" class="short"></label>
+              <div id="imagePreview" class="preview"></div>
+              <p class="hint" id="imageInfo"></p>
+            </div>
+
+            <div class="media-box">
+              <strong>Sound</strong>
+              <div class="row">
+                <button type="button" id="recordBtn">🎙️ Record</button>
+                <span class="hint">or</span>
+                <input id="itemSound" type="file" accept="audio/*">
+              </div>
+              <div id="soundPreview"></div>
+              <p class="hint">No sound? The site will say the word with the device's voice.</p>
+            </div>
+          </div>
+
+          <button type="submit" id="saveItemBtn">Save picture</button>
+        </form>
+        <p class="status" id="itemStatus"></p>
+      </section>
+
+      <section class="card">
+        <h2>Everything on the site</h2>
+        <p class="hint">New things show up on the live site about a minute after saving.</p>
+        <div id="manageList"></div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

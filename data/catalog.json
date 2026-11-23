@@ -1,0 +1,28 @@
+{
+  "categories": [
+    {
+      "id": "birds",
+      "name": "Birds",
+      "emoji": "🐦",
+      "items": [
+        { "id": "parrot", "name": "Parrot", "emoji": "🦜" },
+        { "id": "owl", "name": "Owl", "emoji": "🦉" },
+        { "id": "duck", "name": "Duck", "emoji": "🦆" },
+        { "id": "eagle", "name": "Eagle", "emoji": "🦅" },
+        { "id": "peacock", "name": "Peacock", "emoji": "🦚" }
+      ]
+    },
+    {
+      "id": "animals",
+      "name": "Animals",
+      "emoji": "🦁",
+      "items": [
+        { "id": "lion", "name": "Lion", "emoji": "🦁" },
+        { "id": "elephant", "name": "Elephant", "emoji": "🐘" },
+        { "id": "dog", "name": "Dog", "emoji": "🐶" },
+        { "id": "cat", "name": "Cat", "emoji": "🐱" },
+        { "id": "monkey", "name": "Monkey", "emoji": "🐵" }
+      ]
+    }
+  ]
+}
