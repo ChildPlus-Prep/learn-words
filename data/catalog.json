@@ -9,31 +9,31 @@
           "id": "parrot",
           "name": "Parrot",
           "emoji": "🦜",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "owl",
           "name": "Owl",
           "emoji": "🦉",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "duck",
           "name": "Duck",
           "emoji": "🦆",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "eagle",
           "name": "Eagle",
           "emoji": "🦅",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "peacock",
           "name": "Peacock",
           "emoji": "🦚",
-          "level": "k1"
+          "level": "k2"
         }
       ]
     },
@@ -46,31 +46,31 @@
           "id": "lion",
           "name": "Lion",
           "emoji": "🦁",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "elephant",
           "name": "Elephant",
           "emoji": "🐘",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "dog",
           "name": "Dog",
           "emoji": "🐶",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "cat",
           "name": "Cat",
           "emoji": "🐱",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "monkey",
           "name": "Monkey",
           "emoji": "🐵",
-          "level": "k1"
+          "level": "k2"
         }
       ]
     },
@@ -245,31 +245,31 @@
           "id": "apple",
           "name": "Apple",
           "emoji": "🍎",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "banana",
           "name": "Banana",
           "emoji": "🍌",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "grapes",
           "name": "Grapes",
           "emoji": "🍇",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "mango",
           "name": "Mango",
           "emoji": "🥭",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "strawberry",
           "name": "Strawberry",
           "emoji": "🍓",
-          "level": "k1"
+          "level": "k2"
         }
       ]
     },
@@ -282,31 +282,31 @@
           "id": "carrot",
           "name": "Carrot",
           "emoji": "🥕",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "tomato",
           "name": "Tomato",
           "emoji": "🍅",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "potato",
           "name": "Potato",
           "emoji": "🥔",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "corn",
           "name": "Corn",
           "emoji": "🌽",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "broccoli",
           "name": "Broccoli",
           "emoji": "🥦",
-          "level": "k1"
+          "level": "k2"
         }
       ]
     },
@@ -319,31 +319,31 @@
           "id": "car",
           "name": "Car",
           "emoji": "🚗",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "bus",
           "name": "Bus",
           "emoji": "🚌",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "train",
           "name": "Train",
           "emoji": "🚂",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "airplane",
           "name": "Airplane",
           "emoji": "✈️",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "bicycle",
           "name": "Bicycle",
           "emoji": "🚲",
-          "level": "k1"
+          "level": "k2"
         }
       ]
     },
@@ -355,37 +355,55 @@
         {
           "id": "red",
           "name": "Red",
+          "image": "media/colors/red.svg",
           "emoji": "🔴",
           "level": "preschool"
         },
         {
           "id": "blue",
           "name": "Blue",
+          "image": "media/colors/blue.svg",
           "emoji": "🔵",
           "level": "preschool"
         },
         {
           "id": "green",
           "name": "Green",
+          "image": "media/colors/green.svg",
           "emoji": "🟢",
           "level": "preschool"
         },
         {
           "id": "yellow",
           "name": "Yellow",
+          "image": "media/colors/yellow.svg",
           "emoji": "🟡",
           "level": "preschool"
         },
         {
           "id": "orange",
           "name": "Orange",
+          "image": "media/colors/orange.svg",
           "emoji": "🟠",
           "level": "k1"
         },
         {
           "id": "purple",
           "name": "Purple",
+          "image": "media/colors/purple.svg",
           "emoji": "🟣",
+          "level": "k1"
+        },
+        {
+          "id": "gray",
+          "name": "Gray",
+          "image": "media/colors/gray.svg",
+          "level": "k1"
+        },
+        {
+          "id": "pink",
+          "name": "Pink",
+          "image": "media/colors/pink.svg",
           "level": "k1"
         }
       ]
@@ -454,6 +472,314 @@
           "name": "Ten",
           "emoji": "10",
           "level": "preschool"
+        },
+        {
+          "id": "eleven",
+          "name": "Eleven",
+          "emoji": "11",
+          "level": "k1"
+        },
+        {
+          "id": "twelve",
+          "name": "Twelve",
+          "emoji": "12",
+          "level": "k1"
+        },
+        {
+          "id": "thirteen",
+          "name": "Thirteen",
+          "emoji": "13",
+          "level": "k1"
+        },
+        {
+          "id": "fourteen",
+          "name": "Fourteen",
+          "emoji": "14",
+          "level": "k1"
+        },
+        {
+          "id": "fifteen",
+          "name": "Fifteen",
+          "emoji": "15",
+          "level": "k1"
+        },
+        {
+          "id": "sixteen",
+          "name": "Sixteen",
+          "emoji": "16",
+          "level": "k1"
+        },
+        {
+          "id": "seventeen",
+          "name": "Seventeen",
+          "emoji": "17",
+          "level": "k1"
+        },
+        {
+          "id": "eighteen",
+          "name": "Eighteen",
+          "emoji": "18",
+          "level": "k1"
+        },
+        {
+          "id": "nineteen",
+          "name": "Nineteen",
+          "emoji": "19",
+          "level": "k1"
+        },
+        {
+          "id": "twenty",
+          "name": "Twenty",
+          "emoji": "20",
+          "level": "k1"
+        },
+        {
+          "id": "twenty-one",
+          "name": "Twenty-one",
+          "emoji": "21",
+          "level": "k1"
+        },
+        {
+          "id": "twenty-two",
+          "name": "Twenty-two",
+          "emoji": "22",
+          "level": "k1"
+        },
+        {
+          "id": "twenty-three",
+          "name": "Twenty-three",
+          "emoji": "23",
+          "level": "k1"
+        },
+        {
+          "id": "twenty-four",
+          "name": "Twenty-four",
+          "emoji": "24",
+          "level": "k1"
+        },
+        {
+          "id": "twenty-five",
+          "name": "Twenty-five",
+          "emoji": "25",
+          "level": "k1"
+        },
+        {
+          "id": "twenty-six",
+          "name": "Twenty-six",
+          "emoji": "26",
+          "level": "k1"
+        },
+        {
+          "id": "twenty-seven",
+          "name": "Twenty-seven",
+          "emoji": "27",
+          "level": "k1"
+        },
+        {
+          "id": "twenty-eight",
+          "name": "Twenty-eight",
+          "emoji": "28",
+          "level": "k1"
+        },
+        {
+          "id": "twenty-nine",
+          "name": "Twenty-nine",
+          "emoji": "29",
+          "level": "k1"
+        },
+        {
+          "id": "thirty",
+          "name": "Thirty",
+          "emoji": "30",
+          "level": "k1"
+        },
+        {
+          "id": "thirty-one",
+          "name": "Thirty-one",
+          "emoji": "31",
+          "level": "k1"
+        },
+        {
+          "id": "thirty-two",
+          "name": "Thirty-two",
+          "emoji": "32",
+          "level": "k1"
+        },
+        {
+          "id": "thirty-three",
+          "name": "Thirty-three",
+          "emoji": "33",
+          "level": "k1"
+        },
+        {
+          "id": "thirty-four",
+          "name": "Thirty-four",
+          "emoji": "34",
+          "level": "k1"
+        },
+        {
+          "id": "thirty-five",
+          "name": "Thirty-five",
+          "emoji": "35",
+          "level": "k1"
+        },
+        {
+          "id": "thirty-six",
+          "name": "Thirty-six",
+          "emoji": "36",
+          "level": "k1"
+        },
+        {
+          "id": "thirty-seven",
+          "name": "Thirty-seven",
+          "emoji": "37",
+          "level": "k1"
+        },
+        {
+          "id": "thirty-eight",
+          "name": "Thirty-eight",
+          "emoji": "38",
+          "level": "k1"
+        },
+        {
+          "id": "thirty-nine",
+          "name": "Thirty-nine",
+          "emoji": "39",
+          "level": "k1"
+        },
+        {
+          "id": "forty",
+          "name": "Forty",
+          "emoji": "40",
+          "level": "k1"
+        }
+      ]
+    },
+    {
+      "id": "days",
+      "name": "Days of the Week",
+      "emoji": "📅",
+      "items": [
+        {
+          "id": "sunday",
+          "name": "Sunday",
+          "emoji": "Sun",
+          "level": "preschool"
+        },
+        {
+          "id": "monday",
+          "name": "Monday",
+          "emoji": "Mon",
+          "level": "preschool"
+        },
+        {
+          "id": "tuesday",
+          "name": "Tuesday",
+          "emoji": "Tue",
+          "level": "preschool"
+        },
+        {
+          "id": "wednesday",
+          "name": "Wednesday",
+          "emoji": "Wed",
+          "level": "preschool"
+        },
+        {
+          "id": "thursday",
+          "name": "Thursday",
+          "emoji": "Thu",
+          "level": "preschool"
+        },
+        {
+          "id": "friday",
+          "name": "Friday",
+          "emoji": "Fri",
+          "level": "preschool"
+        },
+        {
+          "id": "saturday",
+          "name": "Saturday",
+          "emoji": "Sat",
+          "level": "preschool"
+        }
+      ]
+    },
+    {
+      "id": "months",
+      "name": "Months of the Year",
+      "emoji": "🗓️",
+      "items": [
+        {
+          "id": "january",
+          "name": "January",
+          "emoji": "Jan",
+          "level": "k1"
+        },
+        {
+          "id": "february",
+          "name": "February",
+          "emoji": "Feb",
+          "level": "k1"
+        },
+        {
+          "id": "march",
+          "name": "March",
+          "emoji": "Mar",
+          "level": "k1"
+        },
+        {
+          "id": "april",
+          "name": "April",
+          "emoji": "Apr",
+          "level": "k1"
+        },
+        {
+          "id": "may",
+          "name": "May",
+          "emoji": "May",
+          "level": "k1"
+        },
+        {
+          "id": "june",
+          "name": "June",
+          "emoji": "Jun",
+          "level": "k1"
+        },
+        {
+          "id": "july",
+          "name": "July",
+          "emoji": "Jul",
+          "level": "k1"
+        },
+        {
+          "id": "august",
+          "name": "August",
+          "emoji": "Aug",
+          "level": "k1"
+        },
+        {
+          "id": "september",
+          "name": "September",
+          "emoji": "Sep",
+          "level": "k1"
+        },
+        {
+          "id": "october",
+          "name": "October",
+          "emoji": "Oct",
+          "level": "k1"
+        },
+        {
+          "id": "november",
+          "name": "November",
+          "emoji": "Nov",
+          "level": "k1"
+        },
+        {
+          "id": "december",
+          "name": "December",
+          "emoji": "Dec",
+          "level": "k1"
         }
       ]
     },
@@ -490,15 +816,23 @@
           "level": "preschool"
         },
         {
-          "id": "star",
-          "name": "Star",
-          "emoji": "⭐",
+          "id": "oval",
+          "name": "Oval",
+          "image": "media/shapes/oval.svg",
           "level": "k1"
         },
         {
           "id": "heart",
           "name": "Heart",
+          "image": "media/shapes/heart.svg",
           "emoji": "❤️",
+          "level": "k1"
+        },
+        {
+          "id": "star",
+          "name": "Star",
+          "image": "media/shapes/star.svg",
+          "emoji": "⭐",
           "level": "k1"
         }
       ]
@@ -509,6 +843,12 @@
       "emoji": "🖐️",
       "items": [
         {
+          "id": "head",
+          "name": "Head",
+          "emoji": "🙂",
+          "level": "k1"
+        },
+        {
           "id": "eye",
           "name": "Eye",
           "emoji": "👁️",
@@ -518,6 +858,18 @@
           "id": "nose",
           "name": "Nose",
           "emoji": "👃",
+          "level": "k1"
+        },
+        {
+          "id": "ear",
+          "name": "Ear",
+          "emoji": "👂",
+          "level": "k1"
+        },
+        {
+          "id": "mouth",
+          "name": "Mouth",
+          "emoji": "👄",
           "level": "k1"
         },
         {
@@ -543,31 +895,31 @@
           "id": "fish",
           "name": "Fish",
           "emoji": "🐟",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "whale",
           "name": "Whale",
           "emoji": "🐳",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "octopus",
           "name": "Octopus",
           "emoji": "🐙",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "crab",
           "name": "Crab",
           "emoji": "🦀",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "dolphin",
           "name": "Dolphin",
           "emoji": "🐬",
-          "level": "k1"
+          "level": "k2"
         }
       ]
     },
@@ -580,31 +932,31 @@
           "id": "butterfly",
           "name": "Butterfly",
           "emoji": "🦋",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "bee",
           "name": "Bee",
           "emoji": "🐝",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "ladybug",
           "name": "Ladybug",
           "emoji": "🐞",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "ant",
           "name": "Ant",
           "emoji": "🐜",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "snail",
           "name": "Snail",
           "emoji": "🐌",
-          "level": "k1"
+          "level": "k2"
         }
       ]
     },
@@ -617,31 +969,31 @@
           "id": "sun",
           "name": "Sun",
           "emoji": "☀️",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "cloud",
           "name": "Cloud",
           "emoji": "☁️",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "rain",
           "name": "Rain",
           "emoji": "🌧️",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "snow",
           "name": "Snow",
           "emoji": "❄️",
-          "level": "k1"
+          "level": "k2"
         },
         {
           "id": "rainbow",
           "name": "Rainbow",
           "emoji": "🌈",
-          "level": "k1"
+          "level": "k2"
         }
       ]
     },
@@ -655,7 +1007,7 @@
           "name": "mountain",
           "image": "media/test/mountain.webp",
           "sound": "media/test/mountain.mp3",
-          "level": "k1"
+          "level": "k2"
         }
       ]
     }

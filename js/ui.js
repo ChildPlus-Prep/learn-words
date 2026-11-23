@@ -18,7 +18,9 @@ export function el(tag, attrs = {}, ...children) {
 
 // An <img>, or a big emoji when there's no image (or the image fails to load).
 export function picture(src, emoji, alt = "") {
-  const fallback = () => el("span", { class: "emoji", "aria-hidden": "true" }, emoji || "❓");
+  // plain text of 3+ letters/digits (like "Mon" or "Jan") gets a smaller size so it fits
+  const longText = /^[\p{L}\p{N}]{3,}$/u.test(emoji || "");
+  const fallback = () => el("span", { class: longText ? "emoji text-long" : "emoji", "aria-hidden": "true" }, emoji || "❓");
   if (!src) return fallback();
   const img = el("img", { src, alt, loading: "lazy", draggable: "false" });
   img.addEventListener("error", () => img.replaceWith(fallback()), { once: true });

@@ -176,6 +176,7 @@ body.kids::before {
 }
 .pic img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
 .pic .emoji { font-size: clamp(3.6rem, 12vw, 5.6rem); line-height: 1; }
+.pic .emoji.text-long { font-size: clamp(2.4rem, 8vw, 3.6rem); }
 /* letters and numbers (plain text instead of an emoji) get the heading font and color */
 .pic .emoji {
   font-family: "Chewy", "Nunito", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", cursive;
