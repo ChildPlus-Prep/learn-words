@@ -249,7 +249,14 @@
       "id": "test",
       "name": "test",
       "emoji": "⛏️",
-      "items": []
+      "items": [
+        {
+          "id": "mountain",
+          "name": "mountain",
+          "image": "media/test/mountain.webp",
+          "sound": "media/test/mountain.mp3"
+        }
+      ]
     }
   ]
 }
