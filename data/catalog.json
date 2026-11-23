@@ -880,6 +880,7 @@
         {
           "id": "hand",
           "name": "Hand",
+          "image": "media/body-parts/hand-mwtrwaim.webp",
           "emoji": "✋",
           "level": "k1"
         },
