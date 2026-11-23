@@ -663,43 +663,43 @@
         {
           "id": "sunday",
           "name": "Sunday",
-          "emoji": "Sun",
+          "emoji": "Sunday",
           "level": "preschool"
         },
         {
           "id": "monday",
           "name": "Monday",
-          "emoji": "Mon",
+          "emoji": "Monday",
           "level": "preschool"
         },
         {
           "id": "tuesday",
           "name": "Tuesday",
-          "emoji": "Tue",
+          "emoji": "Tuesday",
           "level": "preschool"
         },
         {
           "id": "wednesday",
           "name": "Wednesday",
-          "emoji": "Wed",
+          "emoji": "Wednesday",
           "level": "preschool"
         },
         {
           "id": "thursday",
           "name": "Thursday",
-          "emoji": "Thu",
+          "emoji": "Thursday",
           "level": "preschool"
         },
         {
           "id": "friday",
           "name": "Friday",
-          "emoji": "Fri",
+          "emoji": "Friday",
           "level": "preschool"
         },
         {
           "id": "saturday",
           "name": "Saturday",
-          "emoji": "Sat",
+          "emoji": "Saturday",
           "level": "preschool"
         }
       ]
@@ -712,25 +712,25 @@
         {
           "id": "january",
           "name": "January",
-          "emoji": "Jan",
+          "emoji": "January",
           "level": "k1"
         },
         {
           "id": "february",
           "name": "February",
-          "emoji": "Feb",
+          "emoji": "February",
           "level": "k1"
         },
         {
           "id": "march",
           "name": "March",
-          "emoji": "Mar",
+          "emoji": "March",
           "level": "k1"
         },
         {
           "id": "april",
           "name": "April",
-          "emoji": "Apr",
+          "emoji": "April",
           "level": "k1"
         },
         {
@@ -742,43 +742,43 @@
         {
           "id": "june",
           "name": "June",
-          "emoji": "Jun",
+          "emoji": "June",
           "level": "k1"
         },
         {
           "id": "july",
           "name": "July",
-          "emoji": "Jul",
+          "emoji": "July",
           "level": "k1"
         },
         {
           "id": "august",
           "name": "August",
-          "emoji": "Aug",
+          "emoji": "August",
           "level": "k1"
         },
         {
           "id": "september",
           "name": "September",
-          "emoji": "Sep",
+          "emoji": "September",
           "level": "k1"
         },
         {
           "id": "october",
           "name": "October",
-          "emoji": "Oct",
+          "emoji": "October",
           "level": "k1"
         },
         {
           "id": "november",
           "name": "November",
-          "emoji": "Nov",
+          "emoji": "November",
           "level": "k1"
         },
         {
           "id": "december",
           "name": "December",
-          "emoji": "Dec",
+          "emoji": "December",
           "level": "k1"
         }
       ]

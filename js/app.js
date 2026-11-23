@@ -85,6 +85,11 @@ function bounce(node) {
   node.classList.add("pop");
 }
 
+// letters in the longest part of a name ("Twenty-seven" wraps at the dash, so 6)
+function longestWord(name) {
+  return Math.max(...String(name).split(/[\s-]+/).map((w) => w.length), 1);
+}
+
 function backButton(hash) {
   return el("button", { class: "back", "aria-label": "Back", onclick: () => { stopAll(); location.hash = hash; } }, backIcon());
 }
@@ -97,15 +102,13 @@ function renderHome() {
       el(
         "button",
         {
-          class: "tile",
-          "aria-label": level.name,
+          class: "tile class-tile",
           onclick: () => {
             speak(level.name);
             location.hash = `#/k/${level.id}`;
           },
         },
-        el("div", { class: "pic" }, picture(null, level.emoji, level.name)),
-        el("span", { class: "label" }, level.name)
+        el("span", { class: "class-name" }, level.name)
       )
     );
   }
@@ -192,8 +195,10 @@ function renderCategory(levelId, catId) {
         },
       },
       el("div", { class: "pic" }, picture(item.image, item.emoji, item.name)),
-      el("span", { class: "label" }, item.name)
+      el("span", { class: "label", style: `--len:${longestWord(item.name)}` }, item.name)
     );
+    // the picture already IS the word (like "Wednesday"), so don't show it twice
+    if (tile.querySelector(".text-long")) tile.classList.add("text-tile");
     grid.append(tile);
   }
 

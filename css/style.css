@@ -99,6 +99,23 @@ body.kids::before {
   margin: 0 auto;
 }
 
+/* home page class tiles: just the class name, big */
+.class-tile {
+  container-type: inline-size;
+  min-height: 190px;
+  justify-content: center;
+  padding: 28px 12px 22px;
+}
+.class-name {
+  font-family: "Chewy", "Nunito", cursive;
+  font-size: clamp(2rem, 6vw, 3.2rem); /* older browsers */
+  font-size: min(17cqi, 4rem);
+  line-height: 1.05;
+  color: #e4572e;
+  text-align: center;
+  white-space: nowrap;
+}
+
 /* each card is a sticker: white, dashed edge, a strip of tape, slightly tilted */
 .tile {
   --tilt: -2deg;
@@ -176,7 +193,13 @@ body.kids::before {
 }
 .pic img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
 .pic .emoji { font-size: clamp(3.6rem, 12vw, 5.6rem); line-height: 1; }
-.pic .emoji.text-long { font-size: clamp(2.4rem, 8vw, 3.6rem); }
+/* words like "Wednesday": shrink to fit the card, based on the number of letters */
+.pic { container-type: inline-size; }
+.pic .emoji.text-long {
+  font-size: clamp(1.4rem, 5vw, 2.6rem); /* older browsers */
+  font-size: min(calc(100cqi / (var(--len, 4) * 0.52)), 34cqi);
+  white-space: nowrap;
+}
 /* letters and numbers (plain text instead of an emoji) get the heading font and color */
 .pic .emoji {
   font-family: "Chewy", "Nunito", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", cursive;
@@ -191,6 +214,14 @@ body.kids::before {
   line-height: 1.1;
   text-align: center;
 }
+
+/* long names ("Seventeen", "Twenty-seven") shrink to fit the card */
+.tile { container-type: inline-size; }
+.label { font-size: min(clamp(1.35rem, 3.8vw, 1.85rem), calc(100cqi / (var(--len, 6) * 0.55))); overflow-wrap: anywhere; }
+
+/* tiles whose picture is the word itself: hide the repeated label (screen readers still hear it) */
+.text-tile .label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.text-tile { justify-content: center; }
 
 .pop { animation: pop 0.45s ease; }
 @keyframes pop {
