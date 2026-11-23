@@ -244,6 +244,12 @@
           "emoji": "5️⃣"
         }
       ]
+    },
+    {
+      "id": "test",
+      "name": "test",
+      "emoji": "⛏️",
+      "items": []
     }
   ]
 }
