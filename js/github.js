@@ -15,6 +15,10 @@ export class GitHubRepo {
 
   async req(path, options = {}) {
     const res = await fetch(`${API}/repos/${this.owner}/${this.repo}${path}`, {
+      // GitHub lets browsers reuse API answers for 60 seconds. For saving we always
+      // need the real latest version, otherwise a second save within a minute is
+      // built on an old version and GitHub rejects it ("not a fast forward").
+      cache: "no-store",
       ...options,
       headers: {
         Accept: "application/vnd.github+json",
@@ -119,6 +123,7 @@ export class GitHubRepo {
       } catch (err) {
         if (err.status === 422 && attempt < 3) {
           onStatus("Someone else saved at the same time, trying again…");
+          await new Promise((r) => setTimeout(r, 800 * attempt));
           continue;
         }
         throw err;
