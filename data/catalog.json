@@ -1030,20 +1030,6 @@
           "level": "k2"
         }
       ]
-    },
-    {
-      "id": "test",
-      "name": "test",
-      "emoji": "⛏️",
-      "items": [
-        {
-          "id": "mountain",
-          "name": "mountain",
-          "image": "media/test/mountain.webp",
-          "sound": "media/test/mountain.mp3",
-          "level": "k2"
-        }
-      ]
     }
   ]
 }
