@@ -82,156 +82,182 @@
           "id": "a",
           "name": "A",
           "emoji": "A",
+          "sound": "media/alphabets/a.wav",
           "level": "preschool"
         },
         {
           "id": "b",
           "name": "B",
           "emoji": "B",
+          "sound": "media/alphabets/b.wav",
           "level": "preschool"
         },
         {
           "id": "c",
           "name": "C",
           "emoji": "C",
+          "sound": "media/alphabets/c.wav",
           "level": "preschool"
         },
         {
           "id": "d",
           "name": "D",
           "emoji": "D",
+          "sound": "media/alphabets/d.wav",
           "level": "preschool"
         },
         {
           "id": "e",
           "name": "E",
           "emoji": "E",
+          "sound": "media/alphabets/e.wav",
           "level": "preschool"
         },
         {
           "id": "f",
           "name": "F",
           "emoji": "F",
+          "sound": "media/alphabets/f.wav",
           "level": "preschool"
         },
         {
           "id": "g",
           "name": "G",
           "emoji": "G",
+          "sound": "media/alphabets/g.wav",
           "level": "preschool"
         },
         {
           "id": "h",
           "name": "H",
           "emoji": "H",
+          "sound": "media/alphabets/h.wav",
           "level": "preschool"
         },
         {
           "id": "i",
           "name": "I",
           "emoji": "I",
+          "sound": "media/alphabets/i.wav",
           "level": "preschool"
         },
         {
           "id": "j",
           "name": "J",
           "emoji": "J",
+          "sound": "media/alphabets/j.wav",
           "level": "preschool"
         },
         {
           "id": "k",
           "name": "K",
           "emoji": "K",
+          "sound": "media/alphabets/k.wav",
           "level": "preschool"
         },
         {
           "id": "l",
           "name": "L",
           "emoji": "L",
+          "sound": "media/alphabets/l.wav",
           "level": "preschool"
         },
         {
           "id": "m",
           "name": "M",
           "emoji": "M",
+          "sound": "media/alphabets/m.wav",
           "level": "preschool"
         },
         {
           "id": "n",
           "name": "N",
           "emoji": "N",
+          "sound": "media/alphabets/n.wav",
           "level": "preschool"
         },
         {
           "id": "o",
           "name": "O",
           "emoji": "O",
+          "sound": "media/alphabets/o.wav",
           "level": "preschool"
         },
         {
           "id": "p",
           "name": "P",
           "emoji": "P",
+          "sound": "media/alphabets/p.wav",
           "level": "preschool"
         },
         {
           "id": "q",
           "name": "Q",
           "emoji": "Q",
+          "sound": "media/alphabets/q.wav",
           "level": "preschool"
         },
         {
           "id": "r",
           "name": "R",
           "emoji": "R",
+          "sound": "media/alphabets/r.wav",
           "level": "preschool"
         },
         {
           "id": "s",
           "name": "S",
           "emoji": "S",
+          "sound": "media/alphabets/s.wav",
           "level": "preschool"
         },
         {
           "id": "t",
           "name": "T",
           "emoji": "T",
+          "sound": "media/alphabets/t.wav",
           "level": "preschool"
         },
         {
           "id": "u",
           "name": "U",
           "emoji": "U",
+          "sound": "media/alphabets/u.wav",
           "level": "preschool"
         },
         {
           "id": "v",
           "name": "V",
           "emoji": "V",
+          "sound": "media/alphabets/v.wav",
           "level": "preschool"
         },
         {
           "id": "w",
           "name": "W",
           "emoji": "W",
+          "sound": "media/alphabets/w.wav",
           "level": "preschool"
         },
         {
           "id": "x",
           "name": "X",
           "emoji": "X",
+          "sound": "media/alphabets/x.wav",
           "level": "preschool"
         },
         {
           "id": "y",
           "name": "Y",
           "emoji": "Y",
+          "sound": "media/alphabets/y.wav",
           "level": "preschool"
         },
         {
           "id": "z",
           "name": "Z",
           "emoji": "Z",
+          "sound": "media/alphabets/z.wav",
           "level": "preschool"
         }
       ]
