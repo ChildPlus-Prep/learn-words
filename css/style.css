@@ -70,9 +70,13 @@ body.kids::before {
 }
 
 /* home page intro: soft slate text, calmer than the heading and the tiles */
+/* home page only: heading and intro centered */
+.home-top { justify-content: center; text-align: center; }
 .intro {
   max-width: 760px;
-  margin: -14px 4px 28px;
+  margin: -14px auto 28px;
+  padding: 0 4px;
+  text-align: center;
   color: #4f6672;
   font-weight: 700;
   font-size: clamp(1rem, 2.4vw, 1.15rem);

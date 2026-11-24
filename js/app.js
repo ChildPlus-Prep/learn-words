@@ -114,7 +114,7 @@ function renderHome() {
   }
 
   app.replaceChildren(
-    el("header", { class: "top" }, el("h1", {}, "Brain Booster"), el("span", { class: "tagline" }, " - by Aunty Karen")),
+    el("header", { class: "top home-top" }, el("h1", {}, "Brain Booster"), el("span", { class: "tagline" }, " - by Aunty Karen")),
     el(
       "div",
       { class: "intro" },
@@ -173,7 +173,7 @@ function renderClass(levelId) {
           },
         },
         el("div", { class: "pic" }, picture(cat.cover || first.image, cat.emoji || first.emoji, cat.name)),
-        el("span", { class: "label" }, cat.name)
+        el("span", { class: "label", style: `--len:${longestWord(cat.name)}` }, cat.name)
       )
     );
   }
