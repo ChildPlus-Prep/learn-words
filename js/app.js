@@ -115,6 +115,17 @@ function renderHome() {
 
   app.replaceChildren(
     el("header", { class: "top" }, el("h1", {}, "Brain Booster"), el("span", { class: "tagline" }, " - by Aunty Karen")),
+    el(
+      "div",
+      { class: "intro" },
+      el("p", {}, "Brain Booster is an interactive learning reinforcement tool designed to strengthen foundational skills."),
+      el(
+        "p",
+        {},
+        el("strong", {}, "Parent Instructions:"),
+        " Select your child’s class level and encourage them to explore and enjoy the learning activities."
+      )
+    ),
     grid
   );
 }

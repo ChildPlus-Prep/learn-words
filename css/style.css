@@ -69,6 +69,18 @@ body.kids::before {
   color: #2e86ab;
 }
 
+/* home page intro: soft slate text, calmer than the heading and the tiles */
+.intro {
+  max-width: 760px;
+  margin: -14px 4px 28px;
+  color: #4f6672;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+  line-height: 1.5;
+}
+.intro p { margin: 0 0 6px; }
+.intro strong { color: #256f8f; font-weight: 800; }
+
 .back {
   width: 70px;
   height: 70px;
