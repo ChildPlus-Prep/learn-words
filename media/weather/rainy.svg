@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Rainy">
+  <g fill="#8FA3B0">
+    <circle cx="70" cy="76" r="30"/>
+    <circle cx="110" cy="64" r="38"/>
+    <circle cx="146" cy="88" r="26"/>
+    <rect x="28" y="80" width="146" height="40" rx="20"/>
+  </g>
+  <g fill="#1E88E5">
+    <path d="M58 136 C 58 136, 48 152, 48 160 a10 10 0 0 0 20 0 C 68 152, 58 136, 58 136 Z"/>
+    <path d="M100 146 C 100 146, 90 162, 90 170 a10 10 0 0 0 20 0 C 110 162, 100 146, 100 146 Z"/>
+    <path d="M142 136 C 142 136, 132 152, 132 160 a10 10 0 0 0 20 0 C 152 152, 142 136, 142 136 Z"/>
+  </g>
+</svg>

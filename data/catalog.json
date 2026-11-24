@@ -431,6 +431,18 @@
           "name": "Pink",
           "image": "media/colors/pink.svg",
           "level": "k1"
+        },
+        {
+          "id": "brown",
+          "name": "Brown",
+          "image": "media/colors/brown.svg",
+          "level": "k2"
+        },
+        {
+          "id": "black",
+          "name": "Black",
+          "image": "media/colors/black.svg",
+          "level": "k2"
         }
       ]
     },
@@ -1220,6 +1232,12 @@
           "image": "media/shapes/star.svg",
           "emoji": "⭐",
           "level": "k1"
+        },
+        {
+          "id": "diamond",
+          "name": "Diamond",
+          "image": "media/shapes/diamond.svg",
+          "level": "k2"
         }
       ]
     },
@@ -1276,6 +1294,18 @@
           "image": "media/body-parts/foot-mwts5576.webp",
           "emoji": "🦶",
           "level": "k1"
+        },
+        {
+          "id": "fingers",
+          "name": "Fingers",
+          "image": "media/body-parts/fingers-mwv6vwm0.jpg",
+          "level": "k2"
+        },
+        {
+          "id": "toes",
+          "name": "Toes",
+          "image": "media/body-parts/toes-mwv6vwm0.jpg",
+          "level": "k2"
         }
       ],
       "cover": "media/body-parts/cover-mwtsc6si.webp"
@@ -1359,6 +1389,30 @@
       "name": "Weather",
       "emoji": "🌦️",
       "items": [
+        {
+          "id": "sunny",
+          "name": "Sunny",
+          "image": "media/weather/sunny.svg",
+          "level": "k2"
+        },
+        {
+          "id": "rainy",
+          "name": "Rainy",
+          "image": "media/weather/rainy.svg",
+          "level": "k2"
+        },
+        {
+          "id": "windy",
+          "name": "Windy",
+          "image": "media/weather/windy.svg",
+          "level": "k2"
+        },
+        {
+          "id": "cloudy",
+          "name": "Cloudy",
+          "image": "media/weather/cloudy.svg",
+          "level": "k2"
+        },
         {
           "id": "sun",
           "name": "Sun",
