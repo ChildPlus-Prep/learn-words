@@ -132,7 +132,7 @@ function renderHome() {
 
 // Classes that aren't ready yet show a "working on it" page instead of their words.
 // Their words are kept in the catalog; take a class out of this list to open it up.
-const COMING_SOON = new Set(["k2", "k3"]);
+const COMING_SOON = new Set([]);
 
 function renderComingSoon(level) {
   app.replaceChildren(
@@ -209,7 +209,7 @@ function renderCategory(levelId, catId) {
       el("span", { class: "label", style: `--len:${longestWord(item.name)}` }, item.name)
     );
     // the picture already IS the word (like "Wednesday"), so don't show it twice
-    if (tile.querySelector(".text-long")) tile.classList.add("text-tile");
+    if (!item.image && item.emoji === item.name) tile.classList.add("text-tile");
     grid.append(tile);
   }
 

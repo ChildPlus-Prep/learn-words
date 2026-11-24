@@ -9,31 +9,31 @@
           "id": "parrot",
           "name": "Parrot",
           "emoji": "🦜",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "owl",
           "name": "Owl",
           "emoji": "🦉",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "duck",
           "name": "Duck",
           "emoji": "🦆",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "eagle",
           "name": "Eagle",
           "emoji": "🦅",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "peacock",
           "name": "Peacock",
           "emoji": "🦚",
-          "level": "k2"
+          "level": "later"
         }
       ]
     },
@@ -46,31 +46,31 @@
           "id": "lion",
           "name": "Lion",
           "emoji": "🦁",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "elephant",
           "name": "Elephant",
           "emoji": "🐘",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "dog",
           "name": "Dog",
           "emoji": "🐶",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "cat",
           "name": "Cat",
           "emoji": "🐱",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "monkey",
           "name": "Monkey",
           "emoji": "🐵",
-          "level": "k2"
+          "level": "later"
         }
       ]
     },
@@ -271,31 +271,31 @@
           "id": "apple",
           "name": "Apple",
           "emoji": "🍎",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "banana",
           "name": "Banana",
           "emoji": "🍌",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "grapes",
           "name": "Grapes",
           "emoji": "🍇",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "mango",
           "name": "Mango",
           "emoji": "🥭",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "strawberry",
           "name": "Strawberry",
           "emoji": "🍓",
-          "level": "k2"
+          "level": "later"
         }
       ]
     },
@@ -308,31 +308,31 @@
           "id": "carrot",
           "name": "Carrot",
           "emoji": "🥕",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "tomato",
           "name": "Tomato",
           "emoji": "🍅",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "potato",
           "name": "Potato",
           "emoji": "🥔",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "corn",
           "name": "Corn",
           "emoji": "🌽",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "broccoli",
           "name": "Broccoli",
           "emoji": "🥦",
-          "level": "k2"
+          "level": "later"
         }
       ]
     },
@@ -345,31 +345,31 @@
           "id": "car",
           "name": "Car",
           "emoji": "🚗",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "bus",
           "name": "Bus",
           "emoji": "🚌",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "train",
           "name": "Train",
           "emoji": "🚂",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "airplane",
           "name": "Airplane",
           "emoji": "✈️",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "bicycle",
           "name": "Bicycle",
           "emoji": "🚲",
-          "level": "k2"
+          "level": "later"
         }
       ]
     },
@@ -678,6 +678,366 @@
           "name": "Forty",
           "emoji": "40",
           "level": "k1"
+        },
+        {
+          "id": "forty-one",
+          "name": "Forty-one",
+          "emoji": "41",
+          "level": "k2"
+        },
+        {
+          "id": "forty-two",
+          "name": "Forty-two",
+          "emoji": "42",
+          "level": "k2"
+        },
+        {
+          "id": "forty-three",
+          "name": "Forty-three",
+          "emoji": "43",
+          "level": "k2"
+        },
+        {
+          "id": "forty-four",
+          "name": "Forty-four",
+          "emoji": "44",
+          "level": "k2"
+        },
+        {
+          "id": "forty-five",
+          "name": "Forty-five",
+          "emoji": "45",
+          "level": "k2"
+        },
+        {
+          "id": "forty-six",
+          "name": "Forty-six",
+          "emoji": "46",
+          "level": "k2"
+        },
+        {
+          "id": "forty-seven",
+          "name": "Forty-seven",
+          "emoji": "47",
+          "level": "k2"
+        },
+        {
+          "id": "forty-eight",
+          "name": "Forty-eight",
+          "emoji": "48",
+          "level": "k2"
+        },
+        {
+          "id": "forty-nine",
+          "name": "Forty-nine",
+          "emoji": "49",
+          "level": "k2"
+        },
+        {
+          "id": "fifty",
+          "name": "Fifty",
+          "emoji": "50",
+          "level": "k2"
+        },
+        {
+          "id": "fifty-one",
+          "name": "Fifty-one",
+          "emoji": "51",
+          "level": "k2"
+        },
+        {
+          "id": "fifty-two",
+          "name": "Fifty-two",
+          "emoji": "52",
+          "level": "k2"
+        },
+        {
+          "id": "fifty-three",
+          "name": "Fifty-three",
+          "emoji": "53",
+          "level": "k2"
+        },
+        {
+          "id": "fifty-four",
+          "name": "Fifty-four",
+          "emoji": "54",
+          "level": "k2"
+        },
+        {
+          "id": "fifty-five",
+          "name": "Fifty-five",
+          "emoji": "55",
+          "level": "k2"
+        },
+        {
+          "id": "fifty-six",
+          "name": "Fifty-six",
+          "emoji": "56",
+          "level": "k2"
+        },
+        {
+          "id": "fifty-seven",
+          "name": "Fifty-seven",
+          "emoji": "57",
+          "level": "k2"
+        },
+        {
+          "id": "fifty-eight",
+          "name": "Fifty-eight",
+          "emoji": "58",
+          "level": "k2"
+        },
+        {
+          "id": "fifty-nine",
+          "name": "Fifty-nine",
+          "emoji": "59",
+          "level": "k2"
+        },
+        {
+          "id": "sixty",
+          "name": "Sixty",
+          "emoji": "60",
+          "level": "k2"
+        },
+        {
+          "id": "sixty-one",
+          "name": "Sixty-one",
+          "emoji": "61",
+          "level": "k3"
+        },
+        {
+          "id": "sixty-two",
+          "name": "Sixty-two",
+          "emoji": "62",
+          "level": "k3"
+        },
+        {
+          "id": "sixty-three",
+          "name": "Sixty-three",
+          "emoji": "63",
+          "level": "k3"
+        },
+        {
+          "id": "sixty-four",
+          "name": "Sixty-four",
+          "emoji": "64",
+          "level": "k3"
+        },
+        {
+          "id": "sixty-five",
+          "name": "Sixty-five",
+          "emoji": "65",
+          "level": "k3"
+        },
+        {
+          "id": "sixty-six",
+          "name": "Sixty-six",
+          "emoji": "66",
+          "level": "k3"
+        },
+        {
+          "id": "sixty-seven",
+          "name": "Sixty-seven",
+          "emoji": "67",
+          "level": "k3"
+        },
+        {
+          "id": "sixty-eight",
+          "name": "Sixty-eight",
+          "emoji": "68",
+          "level": "k3"
+        },
+        {
+          "id": "sixty-nine",
+          "name": "Sixty-nine",
+          "emoji": "69",
+          "level": "k3"
+        },
+        {
+          "id": "seventy",
+          "name": "Seventy",
+          "emoji": "70",
+          "level": "k3"
+        },
+        {
+          "id": "seventy-one",
+          "name": "Seventy-one",
+          "emoji": "71",
+          "level": "k3"
+        },
+        {
+          "id": "seventy-two",
+          "name": "Seventy-two",
+          "emoji": "72",
+          "level": "k3"
+        },
+        {
+          "id": "seventy-three",
+          "name": "Seventy-three",
+          "emoji": "73",
+          "level": "k3"
+        },
+        {
+          "id": "seventy-four",
+          "name": "Seventy-four",
+          "emoji": "74",
+          "level": "k3"
+        },
+        {
+          "id": "seventy-five",
+          "name": "Seventy-five",
+          "emoji": "75",
+          "level": "k3"
+        },
+        {
+          "id": "seventy-six",
+          "name": "Seventy-six",
+          "emoji": "76",
+          "level": "k3"
+        },
+        {
+          "id": "seventy-seven",
+          "name": "Seventy-seven",
+          "emoji": "77",
+          "level": "k3"
+        },
+        {
+          "id": "seventy-eight",
+          "name": "Seventy-eight",
+          "emoji": "78",
+          "level": "k3"
+        },
+        {
+          "id": "seventy-nine",
+          "name": "Seventy-nine",
+          "emoji": "79",
+          "level": "k3"
+        },
+        {
+          "id": "eighty",
+          "name": "Eighty",
+          "emoji": "80",
+          "level": "k3"
+        },
+        {
+          "id": "eighty-one",
+          "name": "Eighty-one",
+          "emoji": "81",
+          "level": "k3"
+        },
+        {
+          "id": "eighty-two",
+          "name": "Eighty-two",
+          "emoji": "82",
+          "level": "k3"
+        },
+        {
+          "id": "eighty-three",
+          "name": "Eighty-three",
+          "emoji": "83",
+          "level": "k3"
+        },
+        {
+          "id": "eighty-four",
+          "name": "Eighty-four",
+          "emoji": "84",
+          "level": "k3"
+        },
+        {
+          "id": "eighty-five",
+          "name": "Eighty-five",
+          "emoji": "85",
+          "level": "k3"
+        },
+        {
+          "id": "eighty-six",
+          "name": "Eighty-six",
+          "emoji": "86",
+          "level": "k3"
+        },
+        {
+          "id": "eighty-seven",
+          "name": "Eighty-seven",
+          "emoji": "87",
+          "level": "k3"
+        },
+        {
+          "id": "eighty-eight",
+          "name": "Eighty-eight",
+          "emoji": "88",
+          "level": "k3"
+        },
+        {
+          "id": "eighty-nine",
+          "name": "Eighty-nine",
+          "emoji": "89",
+          "level": "k3"
+        },
+        {
+          "id": "ninety",
+          "name": "Ninety",
+          "emoji": "90",
+          "level": "k3"
+        },
+        {
+          "id": "ninety-one",
+          "name": "Ninety-one",
+          "emoji": "91",
+          "level": "k3"
+        },
+        {
+          "id": "ninety-two",
+          "name": "Ninety-two",
+          "emoji": "92",
+          "level": "k3"
+        },
+        {
+          "id": "ninety-three",
+          "name": "Ninety-three",
+          "emoji": "93",
+          "level": "k3"
+        },
+        {
+          "id": "ninety-four",
+          "name": "Ninety-four",
+          "emoji": "94",
+          "level": "k3"
+        },
+        {
+          "id": "ninety-five",
+          "name": "Ninety-five",
+          "emoji": "95",
+          "level": "k3"
+        },
+        {
+          "id": "ninety-six",
+          "name": "Ninety-six",
+          "emoji": "96",
+          "level": "k3"
+        },
+        {
+          "id": "ninety-seven",
+          "name": "Ninety-seven",
+          "emoji": "97",
+          "level": "k3"
+        },
+        {
+          "id": "ninety-eight",
+          "name": "Ninety-eight",
+          "emoji": "98",
+          "level": "k3"
+        },
+        {
+          "id": "ninety-nine",
+          "name": "Ninety-nine",
+          "emoji": "99",
+          "level": "k3"
+        },
+        {
+          "id": "one-hundred",
+          "name": "One hundred",
+          "emoji": "100",
+          "level": "k3"
         }
       ]
     },
@@ -929,31 +1289,31 @@
           "id": "fish",
           "name": "Fish",
           "emoji": "🐟",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "whale",
           "name": "Whale",
           "emoji": "🐳",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "octopus",
           "name": "Octopus",
           "emoji": "🐙",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "crab",
           "name": "Crab",
           "emoji": "🦀",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "dolphin",
           "name": "Dolphin",
           "emoji": "🐬",
-          "level": "k2"
+          "level": "later"
         }
       ]
     },
@@ -966,31 +1326,31 @@
           "id": "butterfly",
           "name": "Butterfly",
           "emoji": "🦋",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "bee",
           "name": "Bee",
           "emoji": "🐝",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "ladybug",
           "name": "Ladybug",
           "emoji": "🐞",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "ant",
           "name": "Ant",
           "emoji": "🐜",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "snail",
           "name": "Snail",
           "emoji": "🐌",
-          "level": "k2"
+          "level": "later"
         }
       ]
     },
@@ -1003,31 +1363,31 @@
           "id": "sun",
           "name": "Sun",
           "emoji": "☀️",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "cloud",
           "name": "Cloud",
           "emoji": "☁️",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "rain",
           "name": "Rain",
           "emoji": "🌧️",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "snow",
           "name": "Snow",
           "emoji": "❄️",
-          "level": "k2"
+          "level": "later"
         },
         {
           "id": "rainbow",
           "name": "Rainbow",
           "emoji": "🌈",
-          "level": "k2"
+          "level": "later"
         }
       ]
     }

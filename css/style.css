@@ -211,6 +211,7 @@ body.kids::before {
 .pic .emoji { font-size: clamp(3.6rem, 12vw, 5.6rem); line-height: 1; }
 /* words like "Wednesday": shrink to fit the card, based on the number of letters */
 .pic { container-type: inline-size; }
+.pic .emoji.text-num { font-size: min(clamp(3.6rem, 12vw, 5.6rem), 52cqi); }
 .pic .emoji.text-long {
   font-size: clamp(1.4rem, 5vw, 2.6rem); /* older browsers */
   font-size: min(calc(100cqi / (var(--len, 4) * 0.52)), 34cqi);

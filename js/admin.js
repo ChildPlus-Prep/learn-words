@@ -1,6 +1,6 @@
 import { GitHubRepo } from "./github.js";
 import { resizeImage, imageExt, startRecording, audioExt } from "./media.js";
-import { el, picture, slugify, LEVELS, levelIndex } from "./ui.js";
+import { el, picture, slugify, LEVELS, LATER, levelValue } from "./ui.js";
 
 const $ = (id) => document.getElementById(id);
 const STORE_KEY = "learnWordsAdmin";
@@ -161,7 +161,7 @@ function renderManageList() {
               { class: "chip" },
               el("div", { class: "thumb" }, picture(item.image, item.emoji || "⏳", item.name)),
               el("span", {}, item.name),
-              levelSelect(levelIndex(item.level), {
+              levelSelect(levelValue(item), {
                 class: "level",
                 title: "Class",
                 "aria-label": `Class for ${item.name}`,
@@ -180,13 +180,15 @@ function renderManageList() {
   );
 }
 
-function levelSelect(selectedIndex, attrs = {}) {
+// Class menu: "Pre-school+", "K1+", "K2+", "K3", then "Saved for later (hidden)".
+function levelSelect(selectedId, attrs = {}) {
   const select = el(
     "select",
     attrs,
-    LEVELS.map((l, i) => el("option", { value: l.id, selected: i === selectedIndex }, i === LEVELS.length - 1 ? l.name : `${l.name}+`))
+    LEVELS.map((l, i) => el("option", { value: l.id }, i === LEVELS.length - 1 ? l.name : `${l.name}+`)),
+    el("option", { value: LATER.id }, `${LATER.name} (hidden)`)
   );
-  select.value = LEVELS[selectedIndex].id;
+  select.value = selectedId;
   return select;
 }
 
@@ -350,7 +352,7 @@ function showKeptSound() {
 }
 
 async function setItemLevel(cat, item, levelId) {
-  const level = LEVELS.find((l) => l.id === levelId);
+  const level = [...LEVELS, LATER].find((l) => l.id === levelId);
   if (!level || busy) return renderManageList();
   await run("itemStatus", async (status) => {
     const result = await gh.commit(
@@ -364,7 +366,11 @@ async function setItemLevel(cat, item, levelId) {
     );
     catalog = result.catalog;
     renderAll();
-    setStatus("itemStatus", `"${item.name}" now shows from ${level.name} up ✓`, "ok");
+    setStatus(
+      "itemStatus",
+      level === LATER ? `"${item.name}" is saved for later (hidden from the site) ✓` : `"${item.name}" now shows from ${level.name} up ✓`,
+      "ok"
+    );
   });
   renderManageList(); // puts the menu back if the save failed
 }
@@ -483,7 +489,7 @@ function startEdit(cat, item) {
   $("itemCategory").disabled = true;
   $("itemName").value = item.name;
   $("itemEmoji").value = item.emoji || "";
-  $("itemLevel").value = LEVELS[levelIndex(item.level)].id;
+  $("itemLevel").value = levelValue(item);
   $("itemFormTitle").textContent = `Edit "${item.name}" in ${cat.name}`;
   $("editHint").hidden = false;
   $("saveItemBtn").textContent = "Save changes";
@@ -620,7 +626,7 @@ $("itemForm").addEventListener("submit", addItem);
 $("cancelEditBtn").addEventListener("click", cancelEdit);
 $("itemImage").addEventListener("change", onImagePicked);
 $("catImage").addEventListener("change", onCatImagePicked);
-$("itemLevel").replaceChildren(...levelSelect(0).children);
+$("itemLevel").replaceChildren(...levelSelect(LEVELS[0].id).children);
 $("itemLevel").value = LEVELS[0].id;
 $("itemSound").addEventListener("change", onSoundPicked);
 $("recordBtn").addEventListener("click", toggleRecording);
