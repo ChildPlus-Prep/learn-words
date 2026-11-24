@@ -218,7 +218,11 @@ function renderCategory(levelId, catId) {
   }
 
   const grid = el("div", { class: "grid" });
-  for (const item of (cat.items || []).filter((i) => visibleIn(i, level.id))) {
+  const shown = (cat.items || []).filter((i) => visibleIn(i, level.id));
+  // word cards (the picture is the word) all get the size that fits the longest one
+  const isWordCard = (i) => !i.image && i.emoji === i.name;
+  const longestCardWord = Math.max(0, ...shown.filter(isWordCard).map((i) => i.name.length));
+  for (const item of shown) {
     const tile = el(
       "button",
       {
@@ -240,7 +244,14 @@ function renderCategory(levelId, catId) {
         : el("span", { class: "label", style: `--len:${longestWord(item.name)}` }, item.name)
     );
     // the picture already IS the word (like "Wednesday"), so don't show it twice
-    if (!item.image && item.emoji === item.name) tile.classList.add("text-tile");
+    if (isWordCard(item)) {
+      tile.classList.add("text-tile");
+      const word = tile.querySelector(".pic .emoji");
+      if (word && longestCardWord >= 2) {
+        word.classList.add("text-long");
+        word.style.setProperty("--len", Math.max(longestCardWord, 2));
+      }
+    }
     if (cat.spell) tile.classList.add("spell-tile");
     grid.append(tile);
   }

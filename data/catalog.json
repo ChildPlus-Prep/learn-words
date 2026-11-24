@@ -1483,6 +1483,253 @@
       ]
     },
     {
+      "id": "sight-words",
+      "name": "Sight Words",
+      "emoji": "👀",
+      "items": [
+        {
+          "id": "i",
+          "name": "i",
+          "emoji": "i",
+          "level": "k3"
+        },
+        {
+          "id": "a",
+          "name": "a",
+          "emoji": "a",
+          "level": "k3"
+        },
+        {
+          "id": "am",
+          "name": "am",
+          "emoji": "am",
+          "level": "k3"
+        },
+        {
+          "id": "at",
+          "name": "at",
+          "emoji": "at",
+          "level": "k3"
+        },
+        {
+          "id": "an",
+          "name": "an",
+          "emoji": "an",
+          "level": "k3"
+        },
+        {
+          "id": "in",
+          "name": "in",
+          "emoji": "in",
+          "level": "k3"
+        },
+        {
+          "id": "it",
+          "name": "it",
+          "emoji": "it",
+          "level": "k3"
+        },
+        {
+          "id": "is",
+          "name": "is",
+          "emoji": "is",
+          "level": "k3"
+        },
+        {
+          "id": "on",
+          "name": "on",
+          "emoji": "on",
+          "level": "k3"
+        },
+        {
+          "id": "up",
+          "name": "up",
+          "emoji": "up",
+          "level": "k3"
+        },
+        {
+          "id": "me",
+          "name": "me",
+          "emoji": "me",
+          "level": "k3"
+        },
+        {
+          "id": "my",
+          "name": "my",
+          "emoji": "my",
+          "level": "k3"
+        },
+        {
+          "id": "go",
+          "name": "go",
+          "emoji": "go",
+          "level": "k3"
+        },
+        {
+          "id": "no",
+          "name": "no",
+          "emoji": "no",
+          "level": "k3"
+        },
+        {
+          "id": "so",
+          "name": "so",
+          "emoji": "so",
+          "level": "k3"
+        },
+        {
+          "id": "to",
+          "name": "to",
+          "emoji": "to",
+          "level": "k3"
+        },
+        {
+          "id": "do",
+          "name": "do",
+          "emoji": "do",
+          "level": "k3"
+        },
+        {
+          "id": "can",
+          "name": "can",
+          "emoji": "can",
+          "level": "k3"
+        },
+        {
+          "id": "yes",
+          "name": "yes",
+          "emoji": "yes",
+          "level": "k3"
+        },
+        {
+          "id": "not",
+          "name": "not",
+          "emoji": "not",
+          "level": "k3"
+        },
+        {
+          "id": "he",
+          "name": "he",
+          "emoji": "he",
+          "level": "k3"
+        },
+        {
+          "id": "she",
+          "name": "she",
+          "emoji": "she",
+          "level": "k3"
+        },
+        {
+          "id": "we",
+          "name": "we",
+          "emoji": "we",
+          "level": "k3"
+        },
+        {
+          "id": "are",
+          "name": "are",
+          "emoji": "are",
+          "level": "k3"
+        },
+        {
+          "id": "you",
+          "name": "you",
+          "emoji": "you",
+          "level": "k3"
+        },
+        {
+          "id": "and",
+          "name": "and",
+          "emoji": "and",
+          "level": "k3"
+        },
+        {
+          "id": "the",
+          "name": "the",
+          "emoji": "the",
+          "level": "k3"
+        },
+        {
+          "id": "see",
+          "name": "see",
+          "emoji": "see",
+          "level": "k3"
+        },
+        {
+          "id": "was",
+          "name": "was",
+          "emoji": "was",
+          "level": "k3"
+        },
+        {
+          "id": "has",
+          "name": "has",
+          "emoji": "has",
+          "level": "k3"
+        },
+        {
+          "id": "have",
+          "name": "have",
+          "emoji": "have",
+          "level": "k3"
+        },
+        {
+          "id": "this",
+          "name": "this",
+          "emoji": "this",
+          "level": "k3"
+        },
+        {
+          "id": "that",
+          "name": "that",
+          "emoji": "that",
+          "level": "k3"
+        },
+        {
+          "id": "here",
+          "name": "here",
+          "emoji": "here",
+          "level": "k3"
+        },
+        {
+          "id": "come",
+          "name": "come",
+          "emoji": "come",
+          "level": "k3"
+        },
+        {
+          "id": "look",
+          "name": "look",
+          "emoji": "look",
+          "level": "k3"
+        },
+        {
+          "id": "like",
+          "name": "like",
+          "emoji": "like",
+          "level": "k3"
+        },
+        {
+          "id": "they",
+          "name": "they",
+          "emoji": "they",
+          "level": "k3"
+        },
+        {
+          "id": "said",
+          "name": "said",
+          "emoji": "said",
+          "level": "k3"
+        },
+        {
+          "id": "what",
+          "name": "what",
+          "emoji": "what",
+          "level": "k3"
+        }
+      ]
+    },
+    {
       "id": "sea-animals",
       "name": "Sea Animals",
       "emoji": "🐠",

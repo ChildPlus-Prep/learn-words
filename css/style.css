@@ -214,7 +214,7 @@ body.kids::before {
 .pic .emoji.text-num { font-size: min(clamp(3.6rem, 12vw, 5.6rem), 52cqi); }
 .pic .emoji.text-long {
   font-size: clamp(1.4rem, 5vw, 2.6rem); /* older browsers */
-  font-size: min(calc(100cqi / (var(--len, 4) * 0.52)), 34cqi);
+  font-size: min(calc(100cqi / (var(--len, 4) * 0.52)), 48cqi);
   white-space: nowrap;
 }
 /* letters and numbers (plain text instead of an emoji) get the heading font and color */
