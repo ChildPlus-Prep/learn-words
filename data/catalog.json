@@ -1054,6 +1054,134 @@
       ]
     },
     {
+      "id": "number-names",
+      "name": "Number Names",
+      "emoji": "🔤",
+      "spell": true,
+      "items": [
+        {
+          "id": "one",
+          "name": "One",
+          "emoji": "1",
+          "level": "k2"
+        },
+        {
+          "id": "two",
+          "name": "Two",
+          "emoji": "2",
+          "level": "k2"
+        },
+        {
+          "id": "three",
+          "name": "Three",
+          "emoji": "3",
+          "level": "k2"
+        },
+        {
+          "id": "four",
+          "name": "Four",
+          "emoji": "4",
+          "level": "k2"
+        },
+        {
+          "id": "five",
+          "name": "Five",
+          "emoji": "5",
+          "level": "k2"
+        },
+        {
+          "id": "six",
+          "name": "Six",
+          "emoji": "6",
+          "level": "k2"
+        },
+        {
+          "id": "seven",
+          "name": "Seven",
+          "emoji": "7",
+          "level": "k2"
+        },
+        {
+          "id": "eight",
+          "name": "Eight",
+          "emoji": "8",
+          "level": "k2"
+        },
+        {
+          "id": "nine",
+          "name": "Nine",
+          "emoji": "9",
+          "level": "k2"
+        },
+        {
+          "id": "ten",
+          "name": "Ten",
+          "emoji": "10",
+          "level": "k2"
+        },
+        {
+          "id": "eleven",
+          "name": "Eleven",
+          "emoji": "11",
+          "level": "k3"
+        },
+        {
+          "id": "twelve",
+          "name": "Twelve",
+          "emoji": "12",
+          "level": "k3"
+        },
+        {
+          "id": "thirteen",
+          "name": "Thirteen",
+          "emoji": "13",
+          "level": "k3"
+        },
+        {
+          "id": "fourteen",
+          "name": "Fourteen",
+          "emoji": "14",
+          "level": "k3"
+        },
+        {
+          "id": "fifteen",
+          "name": "Fifteen",
+          "emoji": "15",
+          "level": "k3"
+        },
+        {
+          "id": "sixteen",
+          "name": "Sixteen",
+          "emoji": "16",
+          "level": "k3"
+        },
+        {
+          "id": "seventeen",
+          "name": "Seventeen",
+          "emoji": "17",
+          "level": "k3"
+        },
+        {
+          "id": "eighteen",
+          "name": "Eighteen",
+          "emoji": "18",
+          "level": "k3"
+        },
+        {
+          "id": "nineteen",
+          "name": "Nineteen",
+          "emoji": "19",
+          "level": "k3"
+        },
+        {
+          "id": "twenty",
+          "name": "Twenty",
+          "emoji": "20",
+          "level": "k3"
+        }
+      ]
+    },
+    {
       "id": "days",
       "name": "Days of the Week",
       "emoji": "📅",

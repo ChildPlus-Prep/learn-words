@@ -236,6 +236,18 @@ body.kids::before {
 .tile { container-type: inline-size; }
 .label { font-size: min(clamp(1.35rem, 3.8vw, 1.85rem), calc(100cqi / (var(--len, 6) * 0.55))); overflow-wrap: anywhere; }
 
+/* spelling categories (Number Names): "o-n-e" over "one" */
+.spell-label { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.spelled {
+  font-family: "Chewy", "Nunito", cursive;
+  font-size: min(calc(100cqi / (var(--len, 5) * 0.56)), 1.7rem);
+  line-height: 1.1;
+  color: #2e86ab;
+  white-space: nowrap;
+}
+.spell-tile .pic { aspect-ratio: 5 / 4; }
+.spelled-word { font-size: min(clamp(1.35rem, 3.8vw, 1.85rem), 17cqi); }
+
 /* tiles whose picture is the word itself: hide the repeated label (screen readers still hear it) */
 .text-tile .label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .text-tile { justify-content: center; }

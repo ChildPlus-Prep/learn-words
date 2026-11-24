@@ -7,6 +7,8 @@ const app = document.getElementById("app");
 let catalog = null;
 let currentAudio = null;
 let playingTile = null;
+let playToken = 0; // goes up on every stop, so a waiting "say the word" step knows it was cancelled
+let pauseTimer = null;
 
 async function loadCatalog() {
   // ?v= skips the browser cache so newly added words show up quickly
@@ -37,6 +39,8 @@ function speak(text, onDone) {
 }
 
 function stopAll() {
+  playToken++;
+  clearTimeout(pauseTimer);
   if (currentAudio) {
     currentAudio.pause();
     currentAudio = null;
@@ -45,19 +49,39 @@ function stopAll() {
   setPlaying(null);
 }
 
-function playItem(item, tile) {
+// "One" -> "o-n-e"
+function spelled(word) {
+  return [...String(word).toLowerCase()].filter((c) => /\p{L}/u.test(c)).join("-");
+}
+
+const SPELL_PAUSE_MS = 700; // gap between the last letter and the whole word
+
+// Says the word with the device voice. For spelling categories: "O, N, E" … pause … "One".
+function sayItem(item, spell, done) {
+  if (!spell) return speak(item.name, done);
+  const letters = [...spelled(item.name).replaceAll("-", "")].map((c) => c.toUpperCase()).join(", ");
+  const token = playToken;
+  speak(letters, () => {
+    if (token !== playToken) return; // another card was tapped meanwhile
+    pauseTimer = setTimeout(() => {
+      if (token === playToken) speak(item.name, done);
+    }, SPELL_PAUSE_MS);
+  });
+}
+
+function playItem(item, tile, spell = false) {
   stopAll();
   setPlaying(tile);
   const done = () => {
     if (playingTile === tile) setPlaying(null);
   };
-  if (!item.sound) return speak(item.name, done);
+  if (!item.sound) return sayItem(item, spell, done);
 
   let fellBack = false;
   const fallback = () => {
     if (!fellBack) {
       fellBack = true;
-      speak(item.name, done);
+      sayItem(item, spell, done);
     }
   };
   const audio = new Audio(item.sound);
@@ -201,15 +225,23 @@ function renderCategory(levelId, catId) {
         class: "tile",
         "aria-label": item.name,
         onclick: () => {
-          playItem(item, tile);
+          playItem(item, tile, cat.spell);
           bounce(tile);
         },
       },
       el("div", { class: "pic" }, picture(item.image, item.emoji, item.name)),
-      el("span", { class: "label", style: `--len:${longestWord(item.name)}` }, item.name)
+      cat.spell
+        ? el(
+            "span",
+            { class: "label spell-label" },
+            el("span", { class: "spelled", style: `--len:${spelled(item.name).length}`, "aria-hidden": "true" }, spelled(item.name)),
+            el("span", { class: "spelled-word" }, item.name.toLowerCase())
+          )
+        : el("span", { class: "label", style: `--len:${longestWord(item.name)}` }, item.name)
     );
     // the picture already IS the word (like "Wednesday"), so don't show it twice
     if (!item.image && item.emoji === item.name) tile.classList.add("text-tile");
+    if (cat.spell) tile.classList.add("spell-tile");
     grid.append(tile);
   }
 

@@ -539,7 +539,10 @@ async function saveEdit() {
         if (!found) throw new Error("That word was deleted. Refresh the page.");
         const old = mediaPaths(found);
         // rebuild in the usual field order
+        // keep any other fields we don't edit here
+        const { id: _i, name: _n, image: _im, emoji: _e, sound: _s, level: _l, ...extra } = found;
         const updated = {
+          ...extra,
           id: found.id,
           name,
           ...(imagePath ? { image: imagePath } : {}),
