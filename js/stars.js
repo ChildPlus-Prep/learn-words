@@ -11,7 +11,7 @@
 // stars first (listed twice so they stay the most common), then other things kids love
 const EMOJIS = [
   "⭐", "✨", "🌟", "⭐", "✨", "🌟",
-  "🎈", "🌈", "🦋", "🍭", "🌸", "🐠", "🎀", "🍦", "🐞", "🐝", "⚽", "🧸",
+  "🎈", "🦋", "🌸", "🐠", "🎀", "🍦", "🐞", "🐝", "⚽", "🧸",
 ];
 const MIN_SIZE = 11.25; // px
 const MAX_SIZE = 20; // px
