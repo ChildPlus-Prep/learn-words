@@ -13,8 +13,8 @@ const EMOJIS = [
   "⭐", "✨", "🌟", "⭐", "✨", "🌟",
   "🎈", "🦋", "🌸", "🐠", "🎀", "🍦", "🐞", "🐝", "⚽", "🧸",
 ];
-const MIN_SIZE = 11.25; // px
-const MAX_SIZE = 20; // px
+const MIN_SIZE = 18; // px
+const MAX_SIZE = 32; // px
 const PUSH_RADIUS = 180; // px around the pointer that feel the "wind"
 const PUSH_STRENGTH = 0.08; // how much of the pointer's speed is passed on
 const MAX_SPEED = 6; // px per 60fps frame, so a fast swipe doesn't fling them away
@@ -62,6 +62,7 @@ function makeSprites() {
     g.textAlign = "center";
     g.textBaseline = "middle";
     g.font = `${px}px "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif`;
+    g.filter = "saturate(1.35) brightness(1.08)"; // extra-vivid colors (done once per emoji, so it's free)
     g.fillText(emoji, box / 2, box / 2);
     sprites.set(emoji, c);
   }
@@ -76,7 +77,7 @@ function makeStar() {
     vy: Math.sin(angle) * DRIFT,
     size: rand(MIN_SIZE, MAX_SIZE),
     emoji: EMOJIS[Math.floor(Math.random() * EMOJIS.length)],
-    alpha: rand(0.3, 0.55), // faint, so they never compete with the stickers
+    alpha: rand(0.88, 1), // bright and colorful; the stickers sit on top, so they stay readable
     twinkle: rand(0, Math.PI * 2),
     spin: rand(-0.01, 0.01),
     angle: rand(0, Math.PI * 2),
@@ -94,8 +95,8 @@ function resize() {
     makeSprites();
   }
 
-  // roughly one per 14,000 px² of screen: ~32 on a phone, ~100 on a laptop
-  const wanted = Math.max(32, Math.min(120, Math.round((width * height) / 14000)));
+  // roughly one per 9,000 px² of screen: ~48 on a phone, ~150 on a laptop
+  const wanted = Math.max(48, Math.min(180, Math.round((width * height) / 9000)));
   while (stars.length < wanted) stars.push(makeStar());
   stars.length = wanted;
   for (const s of stars) {
@@ -184,7 +185,7 @@ function draw() {
   for (const s of stars) {
     const sprite = sprites.get(s.emoji);
     if (!sprite) continue;
-    ctx.globalAlpha = reduceMotion ? s.alpha : s.alpha * (0.75 + 0.25 * Math.sin(s.twinkle));
+    ctx.globalAlpha = reduceMotion ? s.alpha : s.alpha * (0.9 + 0.1 * Math.sin(s.twinkle));
     // move + rotate in one step (cheaper than save/translate/rotate/restore)
     const cos = Math.cos(s.angle) * dpr;
     const sin = Math.sin(s.angle) * dpr;

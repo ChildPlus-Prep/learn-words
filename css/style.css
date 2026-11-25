@@ -7,9 +7,9 @@ img { display: block; }
 body.kids {
   font-family: "Nunito", ui-rounded, system-ui, sans-serif;
   font-weight: 800;
-  background-color: #fdf6ec;
-  /* dotted paper; the soft color patches are on body::before below */
-  background-image: radial-gradient(#e9dcc8 1.6px, transparent 1.6px);
+  background-color: #fffaf2;
+  /* dotted paper; the color patches are on body::before below */
+  background-image: radial-gradient(#ecdcc6 1.6px, transparent 1.6px);
   background-size: 22px 22px;
   color: #3a2e2a;
   min-height: 100vh;
@@ -27,11 +27,15 @@ body.kids::before {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  /* bright, playful pastel patches all around the page */
   background-image:
-    radial-gradient(circle at 8% 12%, rgba(134, 187, 216, 0.28) 0, transparent 32%),
-    radial-gradient(circle at 92% 18%, rgba(246, 174, 45, 0.22) 0, transparent 30%),
-    radial-gradient(circle at 85% 92%, rgba(242, 143, 166, 0.22) 0, transparent 34%),
-    radial-gradient(circle at 10% 88%, rgba(155, 197, 61, 0.20) 0, transparent 32%);
+    radial-gradient(circle at 6% 10%, rgba(120, 190, 235, 0.45) 0, transparent 34%),
+    radial-gradient(circle at 94% 14%, rgba(255, 196, 61, 0.42) 0, transparent 32%),
+    radial-gradient(circle at 88% 90%, rgba(255, 140, 180, 0.40) 0, transparent 36%),
+    radial-gradient(circle at 8% 90%, rgba(150, 210, 80, 0.38) 0, transparent 34%),
+    radial-gradient(circle at 50% 55%, rgba(190, 160, 240, 0.22) 0, transparent 40%),
+    radial-gradient(circle at 96% 52%, rgba(80, 205, 190, 0.30) 0, transparent 26%),
+    radial-gradient(circle at 3% 50%, rgba(255, 170, 120, 0.30) 0, transparent 24%);
   transform: translateZ(0);
 }
 
@@ -83,6 +87,8 @@ body.kids::before {
   line-height: 1.5;
 }
 .intro p { margin: 0 0 6px; }
+/* soft white glow so the bright floating icons behind never make it hard to read */
+.intro, .tagline, .soon-text { text-shadow: 0 0 3px #fffaf2, 0 0 6px #fffaf2, 0 0 10px #fffaf2; }
 .intro strong { color: #256f8f; font-weight: 800; }
 
 .back {
